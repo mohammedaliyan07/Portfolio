@@ -1,226 +1,349 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohammed Aliyan | Data Analytics</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      background: #0a0a14;
-      color: #e6e6ff;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      padding: 20px;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    header {
-      text-align: center;
-      padding: 40px 0 30px;
-    }
-    .profile-photo {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #8678f9;
-      margin: 0 auto 20px;
-      display: block;
-      box-shadow: 0 0 24px rgba(134, 120, 249, 0.25);
-    }
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      background: linear-gradient(90deg, #a78bfa, #8678f9);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .meta {
-      font-size: 1.05rem;
-      opacity: 0.82;
-      margin-bottom: 12px;
-      color: #c7c7e0;
-    }
-    .tagline {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: #d0d0f0;
-    }
-    .quote {
-      font-style: italic;
-      font-size: 1.15rem;
-      color: #e0e0ff;
-      margin-top: 16px;
-      opacity: 0.92;
-    }
-    section {
-      padding: 28px 0;
-      border-bottom: 1px solid #1e1e2e;
-    }
-    h2 {
-      font-size: 1.7rem;
-      margin-bottom: 18px;
-      color: #e2e2ff;
-    }
-    p {
-      margin-bottom: 12px;
-      color: #d8d8f5;
-    }
-    ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
-    }
-    li {
-      background: rgba(134, 120, 249, 0.10);
-      padding: 6px 16px;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      color: #d5d5ff;
-      border: 1px solid rgba(134, 120, 249, 0.15);
-    }
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 12px;
-      margin-top: 12px;
-    }
-    .cert-item {
-      background: rgba(20, 20, 35, 0.6);
-      padding: 10px;
-      border-radius: 6px;
-      font-size: 0.92rem;
-      text-align: center;
-      border: 1px solid #2a2a3f;
-      color: #d0d0f5;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-    .cert-item:hover {
-      background: rgba(30, 30, 50, 0.7);
-      transform: translateY(-2px);
-    }
-    .contact a {
-      color: #a78bfa;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .contact a:hover {
-      text-decoration: underline;
-      color: #c4b5fd;
-    }
-    footer {
-      text-align: center;
-      padding: 30px 0 20px;
-      font-size: 0.9rem;
-      opacity: 0.65;
-      color: #b8b8d9;
-    }
+import React, { useState, useEffect, useRef } from 'react';
+import { Mail, MapPin, Code, TrendingUp, Award, Target, Heart, Zap, BookOpen, Dumbbell } from 'lucide-react';
 
-    @media (max-width: 600px) {
-      .profile-photo {
-        width: 120px;
-        height: 120px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      .cert-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <img 
-        src="https://raw.githubusercontent.com/mohammedaliyan07/Portfolio/refs/heads/main/retouch_2025111617124408.jpg" 
-        alt="Mohammed Aliyan" 
-        class="profile-photo"
-      >
-      <h1>Mohammed Aliyan</h1>
-      <div class="meta">19 • Nirmal, Telangana, India</div>
-      <div class="tagline">B.Com Computer Applications (2nd Year) • Building AI-Proof Expertise in Data Analytics</div>
-      <div class="quote">“Silent grind, loud results.”</div>
-    </header>
+const Portfolio3D = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [scrollY, setScrollY] = useState(0);
 
-    <section>
-      <h2>What I Do</h2>
-      <p>Currently studying <strong>Business Statistics, RDBMS, and Financial Accounting</strong> while building deep skills in data visualization and analytics.</p>
-    </section>
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 2 - 1,
+        y: (e.clientY / window.innerHeight) * 2 - 1
+      });
+    };
+    
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
 
-    <section>
-      <h2>Core Skills</h2>
-      <ul>
-        <li>Power BI</li>
-        <li>Data Visualization</li>
-        <li>Basic Python</li>
-        <li>Prompt Engineering</li>
-        <li>Financial & Business Fundamentals</li>
-      </ul>
-    </section>
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
-    <section>
-      <h2>My Story</h2>
-      <p>Student from a middle-class family working toward a stable, high-earning, future-proof career.</p>
-      <p>Driven by <strong>discipline, logic, and personal growth</strong>. Building mastery in data analytics and technology through consistent effort.</p>
-    </section>
+  const skills = [
+    { name: 'Power BI', level: 90, icon: TrendingUp },
+    { name: 'Data Visualization', level: 85, icon: Code },
+    { name: 'Python', level: 70, icon: Code },
+    { name: 'Prompt Engineering', level: 88, icon: Zap },
+    { name: 'Business Analytics', level: 80, icon: TrendingUp }
+  ];
 
-    <section>
-      <h2>Goals</h2>
-      <ul>
-        <li>Become top 1% in Data Analytics & Power BI</li>
-        <li>Secure a high-paying, AI-proof, globally relevant career</li>
-        <li>Maintain a strong physique and disciplined lifestyle</li>
-      </ul>
-    </section>
+  const certifications = [
+    'Power BI', 'Prompt Engineering', 'Data Visualization',
+    'AI & Generative AI', 'Project Management', 'Cybersecurity',
+    'Business & Finance', 'AWS Prompt Engineering', 'PGDCA'
+  ];
 
-    <section>
-      <h2>Certifications</h2>
-      <div class="cert-grid">
-        <div class="cert-item">Power BI</div>
-        <div class="cert-item">Data Visualization</div>
-        <div class="cert-item">AI & Generative AI</div>
-        <div class="cert-item">Prompt Engineering</div>
-        <div class="cert-item">AWS Foundations</div>
-        <div class="cert-item">Project Management</div>
-        <div class="cert-item">Cybersecurity</div>
-        <div class="cert-item">Business & Finance</div>
-        <div class="cert-item">PGDCA</div>
+  const goals = [
+    { icon: Target, text: 'Top 1% in Data Analytics & Power BI' },
+    { icon: TrendingUp, text: 'High-paying, AI-proof career' },
+    { icon: Heart, text: 'Strong physique & disciplined lifestyle' }
+  ];
+
+  return (
+    <div className="bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 text-white">
+      {/* Animated Background */}
+      <div className="fixed inset-0 opacity-30 pointer-events-none">
+        <div 
+          className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20"
+          style={{
+            transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`,
+            transition: 'transform 0.3s ease-out'
+          }}
+        />
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white"
+            style={{
+              width: Math.random() * 3 + 1 + 'px',
+              height: Math.random() * 3 + 1 + 'px',
+              top: Math.random() * 100 + '%',
+              left: Math.random() * 100 + '%',
+              animation: `float ${Math.random() * 10 + 10}s infinite ease-in-out`,
+              animationDelay: `${Math.random() * 5}s`
+            }}
+          />
+        ))}
       </div>
-    </section>
 
-    <section>
-      <h2>Interests</h2>
-      <ul>
-        <li>Tech</li>
-        <li>Fitness & Self-Improvement</li>
-        <li>Formal Shirts / Smart Casual</li>
-        <li>Biryani & Mandi</li>
-        <li>English / Urdu / Hindi Music</li>
-        <li>Minimal Travel</li>
-      </ul>
-    </section>
+      {/* Fixed Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-slate-950/30 border-b border-purple-500/20">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Mohammed Aliyan
+          </div>
+          <a 
+            href="mailto:aliyan8834@gmail.com"
+            className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300"
+          >
+            Contact Me
+          </a>
+        </div>
+      </nav>
 
-    <section class="contact">
-      <h2>Get In Touch</h2>
-      <p>Email: <a href="mailto:aliyan8834@gmail.com">aliyan8834@gmail.com</a></p>
-    </section>
-  </div>
+      {/* Hero Section */}
+      <section className="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
+          {/* Photo with 3D Effect */}
+          <div 
+            className="relative group"
+            style={{
+              transform: `translateY(${scrollY * 0.1}px)`,
+              transition: 'transform 0.1s ease-out'
+            }}
+          >
+            <div 
+              className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur-3xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"
+              style={{
+                transform: `translate(${mousePosition.x * 10}px, ${mousePosition.y * 10}px)`
+              }}
+            />
+            <div className="relative overflow-hidden rounded-3xl border-2 border-purple-500/30 backdrop-blur-sm bg-slate-900/30">
+              <img
+                src="https://raw.githubusercontent.com/mohammedaliyan07/Portfolio/refs/heads/main/retouch_2025111617124408.jpg"
+                alt="Mohammed Aliyan"
+                className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                style={{
+                  transform: `perspective(1000px) rotateY(${mousePosition.x * 5}deg) rotateX(${-mousePosition.y * 5}deg)`
+                }}
+              />
+            </div>
+          </div>
 
-  <footer>
-    Built with discipline • November 2025
-  </footer>
-</body>
-</html>
+          {/* Text Content */}
+          <div className="space-y-6">
+            <div className="inline-block px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full border border-cyan-500/30 backdrop-blur-sm">
+              <span className="text-cyan-400 text-sm font-semibold">Data Analytics Specialist</span>
+            </div>
+            
+            <h1 className="text-6xl md:text-7xl font-bold">
+              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Mohammed
+              </span>
+              <br />
+              <span className="text-white">Aliyan</span>
+            </h1>
+            
+            <p className="text-xl text-gray-300 leading-relaxed">
+              Student from a middle-class family working toward a stable, high-earning, future-proof career. 
+              Driven by discipline, logic, and personal growth.
+            </p>
+
+            <div className="flex items-center gap-4 text-gray-400">
+              <MapPin className="w-5 h-5" />
+              <span>Nirmal, Telangana, India</span>
+              <span className="text-purple-400">•</span>
+              <span>19 years old</span>
+            </div>
+
+            <div className="pt-6 italic text-gray-400 text-lg border-l-4 border-cyan-500 pl-4">
+              "Silent grind, loud results."
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-5xl font-bold mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent text-center">
+            About Me
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 rounded-3xl backdrop-blur-xl bg-slate-900/30 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex items-center gap-3 mb-4">
+                <BookOpen className="w-8 h-8 text-cyan-400" />
+                <h3 className="text-2xl font-bold text-cyan-400">Education</h3>
+              </div>
+              <p className="text-gray-300 text-lg">
+                B.Com Computer Applications<br />
+                2nd year, 3rd semester<br />
+                <span className="text-purple-400">Focus:</span> Business Statistics, RDBMS, Financial Accounting
+              </p>
+            </div>
+
+            <div className="p-8 rounded-3xl backdrop-blur-xl bg-slate-900/30 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex items-center gap-3 mb-4">
+                <Zap className="w-8 h-8 text-cyan-400" />
+                <h3 className="text-2xl font-bold text-cyan-400">Strengths</h3>
+              </div>
+              <ul className="text-gray-300 space-y-2 text-lg">
+                <li>• Analytical mindset</li>
+                <li>• Empathetic</li>
+                <li>• Disciplined about fitness</li>
+                <li>• Deep focus when interested</li>
+              </ul>
+            </div>
+
+            <div className="p-8 rounded-3xl backdrop-blur-xl bg-slate-900/30 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex items-center gap-3 mb-4">
+                <Heart className="w-8 h-8 text-cyan-400" />
+                <h3 className="text-2xl font-bold text-cyan-400">Values</h3>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {['Logic', 'Discipline', 'Growth', 'Loyalty', 'Simplicity'].map((value) => (
+                  <span key={value} className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full border border-purple-500/30 text-gray-300">
+                    {value}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="p-8 rounded-3xl backdrop-blur-xl bg-slate-900/30 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex items-center gap-3 mb-4">
+                <Dumbbell className="w-8 h-8 text-cyan-400" />
+                <h3 className="text-2xl font-bold text-cyan-400">Interests</h3>
+              </div>
+              <p className="text-gray-300 text-lg">
+                Tech, music (English/Urdu/Hindi), minimal travel, fitness and self-improvement, 
+                formal style & smart casual
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 p-8 rounded-3xl backdrop-blur-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30">
+            <h3 className="text-2xl font-bold mb-4 text-cyan-400">What I'm Working On</h3>
+            <p className="text-gray-300 text-lg">
+              Deep analytics skill-building • Discipline, routine, and strength training • Long-term career clarity
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="py-20 px-6 bg-slate-950/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-5xl font-bold mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent text-center">
+            Skills & Expertise
+          </h2>
+
+          <div className="grid gap-6 mb-12">
+            {skills.map((skill, idx) => {
+              const Icon = skill.icon;
+              return (
+                <div 
+                  key={skill.name}
+                  className="p-6 rounded-2xl backdrop-blur-xl bg-slate-900/30 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500/20 to-purple-500/20">
+                      <Icon className="w-6 h-6 text-cyan-400" />
+                    </div>
+                    <span className="text-xl font-semibold">{skill.name}</span>
+                    <span className="ml-auto text-cyan-400">{skill.level}%</span>
+                  </div>
+                  <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full transition-all duration-1000"
+                      style={{ width: `${skill.level}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="p-8 rounded-3xl backdrop-blur-xl bg-slate-900/30 border border-purple-500/20">
+            <h3 className="text-3xl font-bold mb-6 text-cyan-400 flex items-center gap-3">
+              <Award className="w-8 h-8" />
+              Certifications
+            </h3>
+            <div className="grid md:grid-cols-3 gap-4">
+              {certifications.map((cert, idx) => (
+                <div 
+                  key={cert}
+                  className="p-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/30 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105"
+                >
+                  <span className="text-gray-300">{cert}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Goals Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-5xl font-bold mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent text-center">
+            My Goals
+          </h2>
+
+          <div className="grid gap-8">
+            {goals.map((goal, idx) => {
+              const Icon = goal.icon;
+              return (
+                <div 
+                  key={idx}
+                  className="p-8 rounded-3xl backdrop-blur-xl bg-slate-900/30 border border-purple-500/20 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105"
+                >
+                  <div className="flex items-center gap-6">
+                    <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-purple-500/20">
+                      <Icon className="w-10 h-10 text-cyan-400" />
+                    </div>
+                    <p className="text-2xl text-gray-300">{goal.text}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20 px-6 bg-slate-950/30">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-5xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Let's Connect
+          </h2>
+          
+          <p className="text-xl text-gray-300 mb-12">
+            Open to opportunities in data analytics, AI, and business intelligence. 
+            Let's build something remarkable together.
+          </p>
+
+          <div className="p-8 rounded-3xl backdrop-blur-xl bg-slate-900/30 border border-purple-500/20 mb-8">
+            <div className="flex items-center justify-center gap-4 text-xl">
+              <Mail className="w-8 h-8 text-cyan-400" />
+              <a 
+                href="mailto:aliyan8834@gmail.com" 
+                className="text-gray-300 hover:text-cyan-400 transition-colors"
+              >
+                aliyan8834@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div className="p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30">
+            <p className="text-lg text-gray-300">
+              Based in <span className="text-cyan-400">Nirmal, Telangana, India</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-6 border-t border-purple-500/20 backdrop-blur-xl bg-slate-950/30">
+        <div className="max-w-6xl mx-auto text-center text-gray-400">
+          <p>© 2025 Mohammed Aliyan. Built with discipline and dedication.</p>
+        </div>
+      </footer>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0) translateX(0); }
+          50% { transform: translateY(-20px) translateX(10px); }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default Portfolio3D;
