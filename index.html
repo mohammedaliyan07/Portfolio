@@ -1,220 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohammed Aliyan — 3D Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Aliyan — Portfolio</title>
+
   <style>
-    /* Minimal styling */
-    html,body { height:100%; margin:0; background:linear-gradient(#05050a,#000); color:#fff; font-family:system-ui,Segoe UI,Roboto,Arial; }
-    #app { width:100%; height:100vh; display:flex; align-items:center; justify-content:center; }
-    #ui { position: fixed; right: 18px; top: 18px; max-width:360px; background: rgba(0,0,0,0.45); padding:14px; border-radius:12px; backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
-    #ui h1 { margin:0 0 6px; font-size:18px; }
-    #ui p { margin:0 0 10px; font-size:13px; color:#ddd; line-height:1.25; }
-    #cert-list { display:flex; gap:6px; flex-wrap:wrap; }
-    .cert-btn { background:rgba(255,255,255,0.06); padding:6px 8px; border-radius:8px; font-size:12px; cursor:pointer; color:#eee; border:1px solid rgba(255,255,255,0.03); }
-    .cert-btn:hover { transform:translateY(-3px); }
-    /* Lightbox/modal */
-    #lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.86); align-items:center; justify-content:center; z-index:100; }
-    #lightbox img { max-width:92vw; max-height:86vh; box-shadow:0 20px 60px rgba(0,0,0,0.8); border-radius:8px; }
-    #lightbox .close { position:fixed; top:18px; right:18px; background:#fff;color:#000;padding:8px 10px;border-radius:8px; cursor:pointer; font-weight:600; }
-    /* footer hint */
-    #hint { position:fixed; left:18px; bottom:18px; color:#bbb; font-size:12px; background:rgba(0,0,0,0.35); padding:8px 10px; border-radius:8px; }
-    /* canvas fills container */
-    canvas { display:block; }
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    #infoBox {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+      background: rgba(0,0,0,0.6);
+      padding: 15px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+    }
+
+    .certs {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .certs a {
+      color: cyan;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    #canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
   </style>
 </head>
+
 <body>
-  <div id="app"></div>
 
-  <div id="ui">
-    <h1>Mohammed Aliyan</h1>
-    <p>19 • B.Com CA • Honest portfolio — no fake projects. Click certs to view. Rotate scene with mouse or let it auto-rotate.</p>
-    <div id="cert-list"></div>
-    <div style="margin-top:10px; font-size:12px; color:#ccc">
-      Repo: <a href="https://github.com/mohammedaliyan07/Portfolio" style="color:#9fe;">github</a>
-    </div>
+<div id="infoBox">
+  <h2>Mohammed Aliyan</h2>
+  <p>3D Portfolio</p>
+
+  <div class="certs">
+    <a href="cert1.jpg" target="_blank">Prompt Engineering Certificate</a>
+    <a href="cert2.jpg" target="_blank">Digital Skills AI Certificate</a>
+    <a href="cert3.jpg" target="_blank">Reliance Security Analyst</a>
+    <a href="cert4.jpg" target="_blank">Infosys Generative AI</a>
+    <a href="cert5.jpg" target="_blank">Intel AI for Entrepreneurship</a>
   </div>
+</div>
 
-  <div id="hint">Click or tap any floating card to open. Scroll to zoom (if enabled).</div>
+<canvas id="canvas"></canvas>
 
-  <div id="lightbox" onclick="closeLightbox(event)">
-    <button class="close" onclick="closeLightbox(event)">Close</button>
-    <img id="lightbox-img" src="" alt="cert">
-  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-  <!-- three.js as ES modules from unpkg -->
-  <script type="module">
-    import * as THREE from 'https://unpkg.com/three@0.158.0/build/three.module.js';
-    import { OrbitControls } from 'https://unpkg.com/three@0.158.0/examples/jsm/controls/OrbitControls.js';
+<script>
+  const canvas = document.getElementById("canvas");
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // --- configuration: update file names if yours differ ---
-    const IMAGES = {
-      photo: 'Photo.jpg',
-      certs: [
-        { title: 'Prompt Engineering', file: 'mohammed-aliyan-certificate(1).jpg' },
-        { title: 'Digital Skills AI', file: 'artificial-intelligence_certificate_of_achievement_5pqp7nh (1)(1).jpg' },
-        { title: 'Reliance Security', file: 'Reliance certificate.jpg' },
-        { title: 'Infosys Gen-AI', file: 'Infosys Generative AI.jpg' },
-        { title: 'Intel AI Entrepreneur', file: 'intel AI for entrepreneurship(1).jpg' }
-      ]
-    };
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 3;
 
-    // --- basic three.js scene ---
-    const container = document.getElementById('app');
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 0.6, 4.5);
+  const light = new THREE.PointLight(0xffffff, 2);
+  light.position.set(10,10,10);
+  scene.add(light);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  const textureLoader = new THREE.TextureLoader();
+  const photoTexture = textureLoader.load("Photo.jpg");
+
+  const geometry = new THREE.SphereGeometry(1, 64, 64);
+  const material = new THREE.MeshStandardMaterial({
+    map: photoTexture,
+    metalness: 0.2,
+    roughness: 0.7
+  });
+
+  const sphere = new THREE.Mesh(geometry, material);
+  scene.add(sphere);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    sphere.rotation.y += 0.004;
+    sphere.rotation.x += 0.002;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener("resize", () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  });
+</script>
 
-    // lights
-    const hemi = new THREE.HemisphereLight(0xffffff, 0x222233, 0.6);
-    scene.add(hemi);
-    const dir = new THREE.DirectionalLight(0xffffff, 0.9);
-    dir.position.set(5, 6, 3);
-    scene.add(dir);
-
-    // orbit controls (mouse)
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enablePan = false;
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.08;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.4;
-    controls.minDistance = 2.5;
-    controls.maxDistance = 9;
-
-    // load textures
-    const loader = new THREE.TextureLoader();
-    loader.crossOrigin = '';
-
-    // central photo panel
-    const photoTex = loader.load(IMAGES.photo, () => renderer.render(scene, camera));
-    photoTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-    const photoGeom = new THREE.PlaneGeometry(2.2, 2.8);
-    const photoMat = new THREE.MeshStandardMaterial({ map: photoTex, metalness:0.05, roughness:0.6 });
-    const photoMesh = new THREE.Mesh(photoGeom, photoMat);
-    photoMesh.position.set(0, 0.1, 0);
-    photoMesh.rotation.x = -0.05;
-    scene.add(photoMesh);
-
-    // floating cert cards
-    const certGroup = new THREE.Group();
-    scene.add(certGroup);
-
-    const certMeshes = [];
-    IMAGES.certs.forEach((c, i) => {
-      const tex = loader.load(c.file);
-      tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-      const geom = new THREE.PlaneGeometry(1.6, 1);
-      const mat = new THREE.MeshStandardMaterial({ map: tex, metalness:0.03, roughness:0.6 });
-      const mesh = new THREE.Mesh(geom, mat);
-      // arrange in semicircle around the photo
-      const angle = (i / Math.max(1, IMAGES.certs.length-1)) * Math.PI - Math.PI/2;
-      const radius = 2.6;
-      mesh.position.set(Math.cos(angle) * radius, 0.8 - (i%2)*0.6, Math.sin(angle) * -1.2);
-      mesh.userData = { title: c.title, file: c.file, index: i };
-      certGroup.add(mesh);
-      certMeshes.push(mesh);
-    });
-
-    // subtle ground (shadow-ish)
-    const groundGeo = new THREE.PlaneGeometry(12, 12);
-    const groundMat = new THREE.ShadowMaterial({opacity:0.12});
-    const ground = new THREE.Mesh(groundGeo, groundMat);
-    ground.rotation.x = -Math.PI/2;
-    ground.position.y = -2;
-    scene.add(ground);
-
-    // raycaster for clicks
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
-
-    function onClick(e) {
-      const rect = renderer.domElement.getBoundingClientRect();
-      mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-      raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(certMeshes, false);
-      if (intersects.length > 0) {
-        const hit = intersects[0].object;
-        openLightbox(hit.userData.file);
-      } else {
-        // clicking elsewhere closes lightbox if open
-      }
-    }
-
-    renderer.domElement.addEventListener('click', onClick);
-
-    // animate floating cards
-    const clock = new THREE.Clock();
-    function animate() {
-      requestAnimationFrame(animate);
-      const t = clock.getElapsedTime();
-      // rotate group slowly
-      certGroup.rotation.y = Math.sin(t * 0.12) * 0.07;
-      // float and rotate each card
-      certMeshes.forEach((m, i) => {
-        m.position.y = 0.6 + Math.sin(t * (0.8 + i*0.06) + i) * 0.12;
-        m.rotation.y = Math.sin(t * 0.6 + i) * 0.18;
-      });
-      // tiny bob for photo
-      photoMesh.rotation.y = Math.sin(t * 0.3) * 0.06;
-      photoMesh.position.y = 0.08 + Math.sin(t * 0.6) * 0.02;
-
-      controls.update();
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    // responsiveness
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth/window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-
-    // --- UI: list certs to click too ---
-    const certListEl = document.getElementById('cert-list');
-    IMAGES.certs.forEach(c => {
-      const btn = document.createElement('button');
-      btn.className = 'cert-btn';
-      btn.innerText = c.title;
-      btn.onclick = (ev) => { ev.stopPropagation(); openLightbox(c.file); };
-      certListEl.appendChild(btn);
-    });
-
-    // lightbox functions
-    function openLightbox(src) {
-      const lb = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      img.src = src;
-      lb.style.display = 'flex';
-    }
-    window.openLightbox = openLightbox;
-    function closeLightbox(e) {
-      if (e && e.target && e.target.classList && e.target.classList.contains('close')) {
-        // closed via button
-      } else if (e && e.currentTarget === e.target) {
-        // backdrop click
-      } else {
-        // click inside image: ignore
-        return;
-      }
-      document.getElementById('lightbox').style.display = 'none';
-      document.getElementById('lightbox-img').src = '';
-      e && e.stopPropagation && e.stopPropagation();
-    }
-    window.closeLightbox = closeLightbox;
-
-    // keyboard: esc closes
-    window.addEventListener('keydown', (ev) => {
-      if (ev.key === 'Escape') closeLightbox({currentTarget:document.getElementById('lightbox'), target:document.getElementById('lightbox')});
-    });
-  </script>
 </body>
 </html>
