@@ -1,448 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohammed Aliyan — Data Futurist</title>
-  <meta name="description" content="Cinematic portfolio — Mohammed Aliyan. Data Analytics, Power BI, Python, Prompt Engineering." />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#050406;
-      --panel: rgba(255,255,255,0.03);
-      --glass: rgba(255,255,255,0.04);
-      --gold-1: #c9a75b;
-      --gold-2: #f2d38a;
-      --accent: rgba(201,167,91,0.16);
-      --muted: rgba(255,255,255,0.55);
-      --glass-border: rgba(255,255,255,0.06);
-      --glass-blur: 10px;
-      --radius-lg: 20px;
-      --maxw: 1200px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Aliyan</title>
 
-    /* Reset */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(201,167,91,0.03), transparent 6%),
-                  radial-gradient(900px 500px at 90% 90%, rgba(242,211,138,0.02), transparent 6%),
-                  var(--bg);
-      color:#e9e7e3;
-      font-family:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-y:auto;
-      scroll-behavior:smooth;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
-    /* Canvas particles full screen behind content */
-    #particle-canvas{
-      position:fixed; inset:0; z-index:0; pointer-events:none;
-      mix-blend-mode:screen; opacity:0.9;
-    }
-
-    /* Layout container */
-    .wrap{
-      position:relative; z-index:5;
-      max-width:var(--maxw); margin:0 auto; padding:36px 28px;
-    }
-
-    /* Navbar */
-    nav{
-      position:sticky; top:18px; z-index:12; display:flex; justify-content:space-between; align-items:center;
-      backdrop-filter: blur(8px); padding:10px 18px; border-radius:14px; margin-bottom:28px;
-      border:1px solid var(--glass-border); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      box-shadow: 0 6px 26px rgba(0,0,0,0.6);
-    }
-    .brand{display:flex;gap:14px;align-items:center}
-    .logo{
-      width:56px;height:56px;border-radius:12px; display:grid; place-items:center;
-      background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); color:#051018; font-weight:700;
-      font-family:Orbitron, sans-serif; font-size:18px; box-shadow: 0 6px 30px rgba(201,167,91,0.12);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .brand h4{font-family:Orbitron, sans-serif; letter-spacing:0.6px; font-size:15px; color:var(--gold-2)}
-    .nav-links{display:flex;gap:14px; align-items:center}
-    .nav-links a{color:var(--muted); text-decoration:none; padding:8px 12px; border-radius:9px; font-weight:600; font-size:14px}
-    .nav-links a:hover{color:#fff; box-shadow: 0 6px 20px rgba(201,167,91,0.12); background:linear-gradient(180deg, rgba(201,167,91,0.03), transparent)}
-
-    /* Hero */
-    .hero{
-      display:grid; grid-template-columns: 1fr 420px; gap:32px; align-items:center; margin-top:10px;
-    }
-    .hero-left{padding:30px 20px}
-    .eyebrow{font-size:13px;color:var(--muted); text-transform:uppercase; letter-spacing:2px; margin-bottom:12px}
-    .name{
-      font-family:Orbitron, sans-serif; font-size:56px; line-height:0.92; letter-spacing:-1px;
-      background:linear-gradient(90deg, #e6d6b0 0%, #fff7e0 30%, #c9a75b 60%, #f9f4e6 100%);
-      -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow: 0 6px 30px rgba(0,0,0,0.6);
-    }
-    .subline{font-size:18px;color:var(--muted); margin-top:10px; max-width:760px}
-    .cta-row{margin-top:22px; display:flex; gap:12px; align-items:center}
-    .btn-ghost{
-      padding:12px 16px; border-radius:12px; border:1px solid var(--glass-border); background:transparent;
-      color:var(--muted); text-decoration:none; font-weight:600; font-size:14px; transition:all .28s;
-    }
-    .btn-primary{
-      padding:12px 18px; border-radius:12px; background:linear-gradient(90deg,var(--gold-1),var(--gold-2));
-      color:#051018; font-weight:700; text-decoration:none; font-size:14px; box-shadow: 0 8px 30px rgba(201,167,91,0.14);
-      border:1px solid rgba(255,255,255,0.04);
-    }
-    .btn-ghost:hover{transform:translateY(-4px); color:#fff}
-    .btn-primary:hover{transform:translateY(-4px); box-shadow:0 18px 50px rgba(201,167,91,0.18)}
-
-    /* Hero image card */
-    .hero-right{
-      display:flex; justify-content:center; align-items:center;
-    }
-    .photo-card{
-      width:360px; border-radius:22px; padding:16px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid var(--glass-border); box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-      transform-style:preserve-3d; perspective:900px; transition:transform .6s cubic-bezier(.2,.9,.3,1);
-    }
-    .photo-inner{
-      border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.04);
-      background:linear-gradient(180deg, rgba(10,10,12,0.6), rgba(255,255,255,0.02));
-      padding:10px;
-    }
-    .profile-img{
-      width:320px; height:320px; object-fit:cover; border-radius:12px; display:block;
-      box-shadow: 0 18px 60px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.03);
-      transform:translateZ(30px);
-    }
-    .photo-card:hover{ transform: translateY(-8px) rotateX(4deg) rotateY(-6deg) scale(1.01); }
-
-    /* Grid sections */
-    .grid{
-      display:grid; grid-template-columns: 1fr 420px; gap:32px; margin-top:36px; align-items:start;
-    }
-
-    /* Glass panel style */
-    .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid var(--glass-border);
-      border-radius:var(--radius-lg);
-      padding:22px; backdrop-filter: blur(var(--glass-blur));
-      box-shadow: 0 18px 50px rgba(1,1,2,0.6);
-    }
-    .panel h3{font-family:Orbitron, sans-serif; color:var(--gold-2); margin-bottom:12px}
-    .muted{color:var(--muted); font-size:14px}
-
-    /* Skills tags (luxury) */
-    .skills{display:flex; flex-wrap:wrap; gap:10px}
-    .skill{
-      padding:10px 12px; border-radius:12px; font-weight:600; font-size:13px;
-      background:linear-gradient(180deg, rgba(201,167,91,0.06), rgba(201,167,91,0.02));
-      color:var(--gold-2); border:1px solid rgba(201,167,91,0.12); box-shadow: 0 8px 30px rgba(201,167,91,0.06);
-    }
-
-    /* Projects */
-    .projects{display:grid; gap:16px}
-    .proj{
-      display:flex; gap:14px; align-items:flex-start; padding:14px; border-radius:12px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-      border:1px solid rgba(255,255,255,0.02); transition:transform .28s, box-shadow .28s;
-    }
-    .proj:hover{ transform:translateY(-8px); box-shadow: 0 28px 80px rgba(0,0,0,0.6), 0 6px 30px rgba(201,167,91,0.06) }
-    .proj .pill{min-width:56px; height:56px; border-radius:12px; display:grid; place-items:center; font-weight:700; color:#051018;
-      background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); box-shadow: 0 8px 30px rgba(201,167,91,0.12)}
-    .proj h4{margin-bottom:6px; font-size:16px}
-    .proj p{margin:0; color:var(--muted); font-size:14px}
-
-    /* Right column (contact / certs) */
-    .side-stack{display:flex; flex-direction:column; gap:18px}
-    .cert-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-    .cert{
-      border-radius:10px; overflow:hidden; height:92px; display:flex; gap:10px; align-items:center; padding:8px;
-      border:1px solid rgba(255,255,255,0.03); background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
-    }
-    .cert img{width:74px; height:74px; object-fit:cover; border-radius:8px; border:1px solid rgba(255,255,255,0.03)}
-    .cert .meta{font-size:13px; color:var(--muted)}
-    .contact-row{display:flex; gap:10px; align-items:center}
-    .social{display:flex; gap:8px}
-    .icon{
-      width:46px; height:46px; border-radius:10px; display:grid; place-items:center; font-weight:700; color:#051018;
-      background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); text-decoration:none; box-shadow: 0 8px 30px rgba(201,167,91,0.12)
-    }
-
-    /* Footer */
-    footer{margin-top:48px; text-align:center; color:var(--muted); padding:42px 0 60px; font-size:14px}
-
-    /* Responsive */
-    @media (max-width:1080px){
-      .hero, .grid{grid-template-columns:1fr; padding-bottom:18px}
-      .hero-right, .photo-card{justify-content:center}
-      .grid{gap:20px}
-      .cert-grid{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width:640px){
-      .name{font-size:40px}
-      nav{padding:10px}
-      .logo{width:48px;height:48px;font-size:16px}
-      .profile-img{width:260px;height:260px}
-      .cert img{width:60px;height:60px}
-    }
-  </style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  background:radial-gradient(circle at center,#111 0%,#000 70%);
+  position:relative;
+}
+.hero h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:4rem;
+  letter-spacing:3px;
+  background:linear-gradient(90deg,#E6C36F,#fff,#E6C36F);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{
+  margin-top:15px;
+  font-size:1.1rem;
+  color:#bbb;
+}
+.nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:15px 40px;
+  display:flex;
+  justify-content:center;
+  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,0.3);
+  border-bottom:1px solid rgba(255,215,0,0.2);
+  z-index:10;
+}
+.nav a{
+  margin:0 20px;
+  color:#E6C36F;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+.nav a:hover{
+  color:#fff;
+}
+.section{
+  padding:100px 10vw;
+}
+.title{
+  font-family:'Orbitron',sans-serif;
+  font-size:2rem;
+  margin-bottom:30px;
+  background:linear-gradient(90deg,#E6C36F,#fff,#E6C36F);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,215,0,0.3);
+  padding:30px;
+  border-radius:20px;
+  margin-bottom:30px;
+  backdrop-filter:blur(20px);
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+  border:1px solid rgba(255,215,0,0.6);
+}
+.skills, .certs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+footer{
+  text-align:center;
+  padding:40px;
+  color:#777;
+  border-top:1px solid rgba(255,215,0,0.2);
+  margin-top:50px;
+}
+</style>
 </head>
+
 <body>
 
-  <canvas id="particle-canvas"></canvas>
+<div class="nav">
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#certs">Certifications</a>
+  <a href="#projects">Projects</a>
+</div>
 
-  <div class="wrap">
-    <nav>
-      <div class="brand">
-        <div class="logo">MA</div>
-        <div>
-          <h4 style="margin:0">Mohammed Aliyan</h4>
-          <div style="font-size:12px;color:var(--muted);margin-top:4px">Data Analytics · Power BI · Prompt Engineering</div>
-        </div>
-      </div>
+<section class="hero">
+  <h1>MOHAMMED ALIYAN</h1>
+  <p>Futuristic Data & AI Developer. Precision focused. Growth driven.</p>
+</section>
 
-      <div class="nav-links" aria-hidden>
-        <a href="#about">About</a>
-        <a href="#projects">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#certs">Certs</a>
-        <a href="#contact" class="btn-ghost">Contact</a>
-      </div>
-    </nav>
-
-    <header class="hero" id="home" role="banner">
-      <div class="hero-left">
-        <div class="eyebrow">Data Futurist • Aspiring Top 1%</div>
-        <div class="name">Mohammed Aliyan</div>
-        <div class="subline" style="margin-top:12px">
-          Engineering premium analytics products, high-performance dashboards, and prompt systems that turn noise into decisions.
-          Focused on Power BI, Python analytics, and AI-opti­mized workflows.
-        </div>
-
-        <div class="cta-row">
-          <a class="btn-primary" href="#projects">See Projects</a>
-          <a class="btn-ghost" href="https://github.com/mohammedaliyan07" target="_blank" rel="noopener">View GitHub</a>
-          <a class="btn-ghost" href="#contact">Email</a>
-        </div>
-
-        <div style="margin-top:18px;color:var(--muted);font-size:13px">19 • Telangana, India</div>
-      </div>
-
-      <div class="hero-right">
-        <div class="photo-card" aria-hidden>
-          <div class="photo-inner">
-            <img class="profile-img" src="https://github.com/mohammedaliyan07/Portfolio/blob/main/Photo.jpg?raw=true" alt="Mohammed Aliyan">
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main class="grid">
-      <section class="panel" id="about" aria-labelledby="about-title">
-        <h3 id="about-title">Neural Profile</h3>
-        <div class="muted" style="margin-bottom:12px">Current Mission — B.Com Computer Applications (Year 2)</div>
-        <p style="margin-bottom:8px">Core domains: <strong>Business Statistics</strong> · <strong>RDBMS</strong> · <strong>Financial Accounting</strong></p>
-        <p class="muted">Designing data-centric systems, high-performance dashboards, and repeatable prompt pipelines for decision support. Focused on measurable outcomes and production-ready solutions.</p>
-      </section>
-
-      <aside class="side-stack">
-        <div class="panel" id="certs" aria-labelledby="certs-title">
-          <h3 id="certs-title">Achievements</h3>
-          <div class="cert-grid">
-            <div class="cert">
-              <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert1.jpg?raw=true" alt="">
-              <div class="meta"><strong>Prompt Engineering</strong><div class="muted">AWS Foundations</div></div>
-            </div>
-            <div class="cert">
-              <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert2.jpg?raw=true" alt="">
-              <div class="meta"><strong>AI Skills</strong><div class="muted">Google / Coursera</div></div>
-            </div>
-            <div class="cert">
-              <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert3.jpg?raw=true" alt="">
-              <div class="meta"><strong>Security Analyst</strong><div class="muted">Intro</div></div>
-            </div>
-            <div class="cert">
-              <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert4.jpg?raw=true" alt="">
-              <div class="meta"><strong>Generative AI</strong><div class="muted">Hands-on</div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel" id="contact" aria-labelledby="contact-title">
-          <h3 id="contact-title">Establish Link</h3>
-          <div style="margin-bottom:10px" class="muted">Reach out for collaborations, internships, or freelance analytics work.</div>
-          <div class="contact-row">
-            <a class="icon" href="mailto:aliyan8834@gmail.com" aria-label="Email">✉️</a>
-            <div style="flex:1">
-              <div style="font-weight:700">aliyan8834@gmail.com</div>
-              <div class="muted" style="margin-top:6px">Available for remote & hybrid opportunities</div>
-            </div>
-          </div>
-
-          <div style="margin-top:14px" class="muted">Links</div>
-          <div style="margin-top:8px" class="social">
-            <a class="icon" href="https://github.com/mohammedaliyan07" target="_blank" rel="noopener">GH</a>
-            <a class="icon" href="https://mohammedaliyan07.github.io/Portfolio/" target="_blank" rel="noopener">Site</a>
-            <a class="icon" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a>
-          </div>
-        </div>
-      </aside>
-    </main>
-
-    <section class="panel" id="skills" style="margin-top:26px">
-      <h3>Tech Stack</h3>
-      <div style="margin-top:10px" class="skills">
-        <span class="skill">Power BI</span>
-        <span class="skill">Data Visualization</span>
-        <span class="skill">DAX & Modeling</span>
-        <span class="skill">Python (pandas)</span>
-        <span class="skill">Prompt Engineering</span>
-        <span class="skill">SQL / RDBMS</span>
-        <span class="skill">Business Finance</span>
-      </div>
-    </section>
-
-    <section id="projects" class="panel" style="margin-top:26px">
-      <h3>Active Projects</h3>
-      <div class="projects" style="margin-top:12px">
-        <article class="proj" aria-labelledby="p1">
-          <div class="pill">⚡</div>
-          <div>
-            <h4 id="p1">Power BI Intelligence Hub</h4>
-            <p>End-to-end operational dashboards with DAX optimization, automated refresh, and executive-ready insights for decision-making.</p>
-          </div>
-        </article>
-
-        <article class="proj" aria-labelledby="p2">
-          <div class="pill">🧠</div>
-          <div>
-            <h4 id="p2">Prompt Engineering Vault</h4>
-            <p>Reusable prompt templates and adapters for structured extraction, summaries, and automated reporting workflows.</p>
-          </div>
-        </article>
-
-        <article class="proj" aria-labelledby="p3">
-          <div class="pill">📊</div>
-          <div>
-            <h4 id="p3">Financial Health OS (Python)</h4>
-            <p>CLI + visual analytics for personal finance tracking, trend forecasting, and actionable budgeting signals.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <footer>
-      <div style="font-weight:600; color:var(--gold-2)">📍 Telangana, India</div>
-      <div style="margin-top:8px" class="muted">Focused on building a high-performance data future. Silent grind, loud results.</div>
-    </footer>
+<section id="about" class="section">
+  <h2 class="title">About Me</h2>
+  <div class="card">
+    <p>B.Com Computer Applications — Kakatiya University.</p>
+    <p>Focused on Data Analytics, Power BI, AI workflows, and systems thinking.</p>
+    <p>Aiming for global top 1% in analytics and future-proof tech careers.</p>
   </div>
+</section>
 
-  <script>
-    /* Particle canvas (subtle cinematic particles) */
-    (function(){
-      const canvas = document.getElementById('particle-canvas');
-      const ctx = canvas.getContext('2d');
-      let w = canvas.width = innerWidth;
-      let h = canvas.height = innerHeight;
-      const particles = [];
-      const P = 80;
-      class Particle {
-        constructor(){
-          this.reset();
-        }
-        reset(){
-          this.x = Math.random()*w;
-          this.y = Math.random()*h;
-          this.vx = (Math.random()-0.5)*0.25;
-          this.vy = (Math.random()-0.5)*0.25;
-          this.r = (Math.random()*1.6)+0.4;
-          this.alpha = 0.08 + Math.random()*0.22;
-        }
-        step(){
-          this.x += this.vx;
-          this.y += this.vy;
-          if(this.x<-50||this.x>w+50||this.y<-50||this.y>h+50) this.reset();
-        }
-        draw(){
-          ctx.beginPath();
-          ctx.globalAlpha = this.alpha;
-          ctx.fillStyle = '#e6d6b0';
-          ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
-          ctx.fill();
-        }
-      }
-      for(let i=0;i<P;i++) particles.push(new Particle());
-      function resize(){ w=canvas.width=innerWidth; h=canvas.height=innerHeight; }
-      addEventListener('resize',resize);
-      let t=0;
-      function loop(){
-        ctx.clearRect(0,0,w,h);
-        t+=0.002;
-        // subtle radial shimmer
-        const grd = ctx.createRadialGradient(w*0.55,h*0.2,10,w*0.5,h*0.6,Math.max(w,h));
-        grd.addColorStop(0,'rgba(201,167,91,0.02)');
-        grd.addColorStop(1,'rgba(5,4,6,0)');
-        ctx.fillStyle = grd;
-        ctx.fillRect(0,0,w,h);
-        for(const p of particles){ p.step(); p.draw(); }
-        // connecting lines (sparse)
-        ctx.beginPath();
-        for(let i=0;i<particles.length;i++){
-          for(let j=i+1;j<particles.length;j++){
-            const a=particles[i], b=particles[j];
-            const dx=a.x-b.x, dy=a.y-b.y;
-            const d = Math.sqrt(dx*dx+dy*dy);
-            if(d<120){
-              ctx.moveTo(a.x,a.y);
-              ctx.lineTo(b.x,b.y);
-            }
-          }
-        }
-        ctx.strokeStyle = 'rgba(201,167,91,0.02)';
-        ctx.lineWidth = 0.4;
-        ctx.stroke();
-        requestAnimationFrame(loop);
-      }
-      loop();
-    })();
+<section id="skills" class="section">
+  <h2 class="title">Skills</h2>
+  <div class="skills">
+    <div class="card">Power BI</div>
+    <div class="card">Data Visualization</div>
+    <div class="card">Prompt Engineering</div>
+    <div class="card">Python (Core)</div>
+    <div class="card">RDBMS</div>
+    <div class="card">Statistics</div>
+  </div>
+</section>
 
-    /* Parallax / subtle hero depth on scroll */
-    (function(){
-      const hero = document.querySelector('.hero-right');
-      const logo = document.querySelector('.logo');
-      function onScroll(){
-        const st = scrollY;
-        if(hero) hero.style.transform = `translateY(${Math.min(st*0.03,20)}px)`;
-        if(logo) logo.style.transform = `translateY(${Math.min(st*0.02,8)}px)`;
-      }
-      addEventListener('scroll', onScroll, {passive:true});
-    })();
+<section id="certs" class="section">
+  <h2 class="title">Certifications</h2>
+  <div class="certs">
+    <div class="card">Prompt Engineering — Dubai Future Foundation</div>
+    <div class="card">Digital Skills: AI — Accenture</div>
+    <div class="card">Security Analyst — Reliance Foundation</div>
+    <div class="card">Generative AI — Infosys</div>
+    <div class="card">PGDCA</div>
+  </div>
+</section>
 
-    /* Intersection fade-in for panels */
-    (function(){
-      const obs = new IntersectionObserver((entries)=> {
-        entries.forEach(e=> {
-          if(e.isIntersecting) e.target.style.transform='translateY(0)', e.target.style.opacity='1', e.target.style.transition='opacity .6s ease, transform .6s ease';
-        });
-      }, {threshold:0.12});
-      document.querySelectorAll('.panel, .proj').forEach(n => { n.style.opacity=0; n.style.transform='translateY(18px)'; obs.observe(n); });
-    })();
+<section id="projects" class="section">
+  <h2 class="title">Projects</h2>
+  <div class="card">Power BI Dashboards — business intelligence, automation, insights.</div>
+  <div class="card">Prompt Engineering Systems — structured prompt frameworks.</div>
+  <div class="card">Financial Analytics — Python-based trend analysis and forecasting.</div>
+</section>
 
-    /* Tiny tilt for photo on mouse move */
-    (function(){
-      const card = document.querySelector('.photo-card');
-      if(!card) return;
-      card.addEventListener('mousemove', (e)=>{
-        const r = card.getBoundingClientRect();
-        const cx = r.left + r.width/2;
-        const cy = r.top + r.height/2;
-        const dx = e.clientX - cx;
-        const dy = e.clientY - cy;
-        const rx = (dy / r.height) * -6;
-        const ry = (dx / r.width) * 8;
-        card.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.01)`;
-      });
-      card.addEventListener('mouseleave', ()=> card.style.transform = '');
-    })();
-  </script>
+<footer>
+  © 2025 Aliyan • Nirmal, Telangana
+</footer>
+
 </body>
 </html>
