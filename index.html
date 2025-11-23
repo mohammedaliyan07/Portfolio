@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mohammed Aliyan | Data Analytics</title>
+  <meta name="description" content="Aspiring Top 1% Data Analyst & Power BI Specialist | Building an AI-proof future with discipline and logic.">
+  
+  <!-- Favicon (optional) -->
+  <!-- <link rel="icon" href="favicon.ico"> -->
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --grad-primary: linear-gradient(135deg, #4e54c8, #8f94fb);
+      --grad-accent: linear-gradient(135deg, #11998e, #38ef7d);
+      --grad-purple: linear-gradient(135deg, #667eea, #764ba2);
+      --text-light: #f8f9ff;
+      --text-dark: #11111a;
+      --bg-dark: #0f0f1b;
+      --bg-light: #f8f9ff;
+      --card-dark: rgba(255, 255, 255, 0.08);
+      --card-light: rgba(0, 0, 0, 0.05);
+      --border-dark: rgba(255,255,255,0.08);
+      --border-light: rgba(0,0,0,0.1);
+      --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.3);
+      --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Light Theme */
+    .light-theme {
+      --text-primary: var(--text-dark);
+      --bg-primary: var(--bg-light);
+      --card-bg: var(--card-light);
+      --border-color: var(--border-light);
+      --box-shadow: var(--shadow-light);
+      color-scheme: light;
+    }
+
+    /* Dark Theme (default) */
+    .dark-theme {
+      --text-primary: var(--text-light);
+      --bg-primary: var(--bg-dark);
+      --card-bg: var(--card-dark);
+      --border-color: var(--border-dark);
+      --box-shadow: var(--shadow-dark);
+      color-scheme: dark;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 0;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(15deg);
+    }
+
+    .theme-toggle svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--text-primary);
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 0 auto 1.8rem;
+      position: relative;
+    }
+
+    .profile-img::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: var(--grad-primary);
+      z-index: -1;
+    }
+
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bg-primary);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: var(--grad-accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .tagline {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #a0a0ff;
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      position: relative;
+    }
+
+    .quote::before,
+    .quote::after {
+      content: '"';
+      font-size: 1.8rem;
+      opacity: 0.6;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 2.8rem;
+      padding: 1.8rem;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--box-shadow);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-bottom: 1.3rem;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 600;
+    }
+
+    p, ul {
+      line-height: 1.7;
+      margin-bottom: 0.9rem;
+    }
+
+    ul {
+      padding-left: 1.4rem;
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+    }
+
+    .skill-tag {
+      background: rgba(78, 84, 200, 0.15);
+      padding: 0.45rem 1.1rem;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid rgba(78, 84, 200, 0.3);
+    }
+
+    .light-theme .skill-tag {
+      background: rgba(78, 84, 200, 0.1);
+      border-color: rgba(78, 84, 200, 0.4);
+    }
+
+    /* Certifications */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .cert-item {
+      text-align: center;
+    }
+
+    .cert-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cert-img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .cert-label {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: block;
+      color: var(--text-primary);
+    }
+
+    /* Projects */
+    .project {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .project:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .project h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .project p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* Social */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.4rem;
+      margin-top: 1rem;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--card-bg);
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-4px);
+      background: var(--grad-primary);
+    }
+
+    .social-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0 1.5rem;
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container { padding: 1.5rem; }
+      h1 { font-size: 2.2rem; }
+      .tagline { font-size: 1.15rem; }
+      .cert-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .cert-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body class="dark-theme">
+  <div class="container">
+    <header>
+      <div class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <!-- Sun Icon (for dark mode) -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon">
+          <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/>
+        </svg>
+        <!-- Moon Icon (for light mode) - hidden by default -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" style="display:none">
+          <path d="M12 12.5c-3.04 0-5.5 2.46-5.5 5.5s2.46 5.5 5.5 5.5c3.04 0 5.5-2.46 5.5-5.5s-2.46-5.5-5.5-5.5zm0-10c-4.19 0-7.61 3.42-7.61 7.61 0 1.26.31 2.47.88 3.54l-4.23 4.23 1.41 1.41 4.23-4.23c1.07.57 2.28.88 3.54.88 4.19 0 7.61-3.42 7.61-7.61S16.19 1.5 12 1.5z"/>
+        </svg>
+      </div>
+
+      <div class="profile-img">
+        <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/Photo.jpg?raw=true" alt="Mohammed Aliyan">
+      </div>
+      <h1>Mohammed Aliyan</h1>
+      <p class="subtitle">19 • Nirmal, Telangana, India</p>
+      <p class="tagline">
+        Building toward <strong>Top 1% in Data Analytics & Power BI</strong><br>
+        B.Com Computer Applications • AI-Proof Career • Disciplined Lifestyle
+      </p>
+      <p class="quote">Silent grind, loud results.</p>
+    </header>
+
+    <section id="about">
+      <h2>🔍 What I Do</h2>
+      <p><strong>Academics</strong>: Business Statistics • RDBMS • Financial Accounting</p>
+      <p><strong>Focus</strong>: Data Analytics, Power BI, Prompt Engineering</p>
+      <p>Goal: High-paying, globally relevant, <strong>AI-proof career</strong> in technology.</p>
+    </section>
+
+    <section id="skills">
+      <h2>🛠️ Skills</h2>
+      <div class="skills">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Data Visualization</span>
+        <span class="skill-tag">Basic Python</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">Financial & Business Fundamentals</span>
+      </div>
+    </section>
+
+    <section id="story">
+      <h2>🧭 My Story</h2>
+      <p>Student from a middle-class family, driven by discipline and logic.</p>
+      <p>Actively mastering data analytics to build a stable, high-impact future—while staying grounded in growth and simplicity.</p>
+    </section>
+
+    <section id="projects">
+      <h2>🚀 Projects & Focus Areas</h2>
+      <div class="project">
+        <h3>Power BI Sales Dashboard</h3>
+        <p>Interactive dashboard analyzing regional sales performance with DAX measures and dynamic filters.</p>
+      </div>
+      <div class="project">
+        <h3>Prompt Engineering Experiments</h3>
+        <p>Building reusable prompt templates for data summarization, insight extraction, and report generation.</p>
+      </div>
+      <div class="project">
+        <h3>Financial Health Tracker (Python)</h3>
+        <p>Basic CLI tool to log income/expenses and visualize monthly trends using matplotlib.</p>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <h2>🏆 Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-item">
+          <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert1.jpg?raw=true" class="cert-img" alt="Prompt Engineering">
+          <span class="cert-label">Prompt Engineering</span>
+        </div>
+        <div class="cert-item">
+          <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert2.jpg?raw=true" class="cert-img" alt="AI Digital Skills">
+          <span class="cert-label">AI (Digital Skills)</span>
+        </div>
+        <div class="cert-item">
+          <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert3.jpg?raw=true" class="cert-img" alt="Security Analyst">
+          <span class="cert-label">Security Analyst</span>
+        </div>
+        <div class="cert-item">
+          <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert4.jpg?raw=true" class="cert-img" alt="Generative AI">
+          <span class="cert-label">Generative AI</span>
+        </div>
+        <div class="cert-item">
+          <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert5.jpg?raw=true" class="cert-img" alt="AI for Entrepreneurship">
+          <span class="cert-label">AI for Entrepreneurs</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests">
+      <h2>💡 Values & Interests</h2>
+      <p><strong>Values</strong>: Logic • Discipline • Growth • Loyalty • Simplicity</p>
+      <p><strong>Interests</strong>: Tech • Minimal Travel • Biryani/Mandi • Fitness • Self-Improvement • Formal Shirts & Smart Casual Style • Music (English/Urdu/Hindi)</p>
+    </section>
+
+    <section id="contact">
+      <h2>📬 Let’s Connect</h2>
+      <div class="social-links">
+        <a href="mailto:aliyan8834@gmail.com" class="social-icon" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/mohammedaliyan07" class="social-icon" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <!-- Add LinkedIn when available -->
+        <!--
+        <a href="https://linkedin.com/in/yourprofile" class="social-icon" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        -->
+      </div>
+    </section>
+
+    <footer>
+      <p>📍 Nirmal, Telangana, India</p>
+      <p><em>Building in silence. Shipping with impact.</em></p>
+    </footer>
+  </div>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const sunIcon = themeToggle.querySelector('.sun-icon');
+    const moonIcon = themeToggle.querySelector('.moon-icon');
+
+    // Check saved theme preference or respect OS setting
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+      body.classList.replace('dark-theme', 'light-theme');
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      body.classList.toggle('dark-theme');
+
+      const isLight = body.classList.contains('light-theme');
+      sunIcon.style.display = isLight ? 'none' : 'block';
+      moonIcon.style.display = isLight ? 'block' : 'none';
+
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // Scroll Animation
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
