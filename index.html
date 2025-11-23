@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mohammed Aliyan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html,body { height: 100%; }
+  body{
+    font-family: "Inter", sans-serif;
+    background: radial-gradient(circle at top, #07070a 0%, #000000 70%);
+    color: #f3f3f3;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x: hidden;
+  }
+
+  .container { width: 92%; max-width: 1200px; margin: 0 auto; padding: 28px 0 80px; position: relative; }
+
+  /* NAV */
+  nav{
+    position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+    width: calc(100% - 48px); max-width: 1200px; padding: 10px 18px;
+    background: rgba(10,10,10,0.45); border-radius: 12px; border: 1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px); display:flex; justify-content:space-between; align-items:center; z-index:1000;
+  }
+  .brand { display:flex; gap:12px; align-items:center; }
+  .logo{
+    width:50px; height:50px; border-radius:10px; display:grid; place-items:center;
+    background: linear-gradient(135deg,#c9a75b,#f2d38a); color:#041014; font-weight:800;
+    font-family: "Space Grotesk", sans-serif;
+  }
+  .brand .meta { line-height:1; }
+  .brand h4 { font-family:"Space Grotesk", sans-serif; color:#f2d38a; margin-bottom:2px; font-size:14px; }
+  .brand p { color: rgba(255,255,255,0.7); font-size:12px; margin:0; }
+
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration:none; margin-left:14px; padding:8px 10px; border-radius:8px; font-weight:600; font-size:13px; }
+  .nav-links a:hover { color: #fff; background: rgba(242,211,138,0.04); box-shadow: 0 8px 28px rgba(242,211,138,0.06); }
+
+  /* HERO */
+  .hero { min-height: 72vh; display: grid; grid-template-columns: 1fr 420px; gap: 34px; align-items: center; padding-top: 48px; }
+  .hero-left { padding: 18px; }
+  .eyebrow { font-size:12px; color: rgba(255,255,255,0.66); text-transform:uppercase; letter-spacing:2px; margin-bottom:8px; }
+  .name { font-family: "Space Grotesk", sans-serif; font-size:56px; line-height:0.92; background: linear-gradient(90deg,#fff7e0 0%, #e6d6b0 40%, #f2d38a 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .tag { margin-top:12px; color: rgba(255,255,255,0.78); max-width:760px; font-size:17px; line-height:1.5; }
+  .meta-row { margin-top:18px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  .btn-primary { background: linear-gradient(90deg,#c9a75b,#f2d38a); color:#041014; padding:12px 18px; border-radius:12px; font-weight:700; text-decoration:none; box-shadow: 0 10px 36px rgba(201,167,91,0.12); border:1px solid rgba(255,255,255,0.03); }
+  .btn-ghost { padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.04); color:rgba(255,255,255,0.82); background:transparent; text-decoration:none; }
+
+  /* HERO PHOTO */
+  .hero-right { display:flex; justify-content:center; align-items:center; }
+  .photo-card { width:360px; border-radius:18px; padding:12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); box-shadow: 0 26px 80px rgba(0,0,0,0.7); }
+  .photo-inner { border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.03); background:linear-gradient(180deg, rgba(10,10,12,0.6), rgba(255,255,255,0.02)); padding:10px; display:flex; justify-content:center; align-items:center; }
+  .profile-img { display:block; object-fit:cover; border-radius:10px; border: 1px solid rgba(255,255,255,0.03); width:320px; height:320px; }
+
+  /* MAIN GRID */
+  .main-grid { display:grid; grid-template-columns: 1fr 380px; gap: 28px; margin-top: 36px; align-items:start; }
+
+  .panel { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); border-radius:14px; padding:20px; backdrop-filter: blur(8px); box-shadow: 0 18px 50px rgba(0,0,0,0.6); }
+
+  .panel h3 { font-family: "Space Grotesk", sans-serif; color:#f2d38a; margin-bottom:10px; font-size:18px; }
+  .panel p { color: rgba(255,255,255,0.78); line-height:1.6; font-size:15px; }
+
+  /* SKILLS */
+  .skills { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+  .skill { padding:10px 12px; border-radius:10px; background: linear-gradient(180deg, rgba(201,167,91,0.06), rgba(201,167,91,0.02)); color:#f2d38a; font-weight:700; border:1px solid rgba(201,167,91,0.12); }
+
+  /* PROJECTS */
+  .projects { display:flex; flex-direction:column; gap:12px; margin-top:12px; }
+  .proj { display:flex; gap:12px; align-items:flex-start; padding:12px; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0)); border:1px solid rgba(255,255,255,0.02); transition: transform .22s ease; }
+  .proj:hover { transform: translateY(-8px); box-shadow: 0 28px 70px rgba(0,0,0,0.6), 0 8px 30px rgba(201,167,91,0.06); }
+  .pill { min-width:56px; height:56px; border-radius:10px; display:grid; place-items:center; background: linear-gradient(135deg,#c9a75b,#f2d38a); color:#041014; font-weight:800; }
+
+  /* CERTIFICATIONS - show original image size */
+  .cert-grid {
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+    align-items:flex-start;
+    margin-top:12px;
+  }
+  .cert-card {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding:8px;
+    border-radius:12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+    border:1px solid rgba(255,255,255,0.03);
+    /* allow the card to size to its image */
+    width: auto;
+    max-width: none;
+  }
+  .cert-card img{
+    display:block;
+    width: auto;      /* show original width */
+    height: auto;     /* show original height */
+    max-width: none;  /* do not constrain */
+  }
+  .cert-card .txt { color: rgba(255,255,255,0.9); font-weight:700; font-size:14px; }
+
+  /* CONTACT */
+  .contact .row { display:flex; gap:10px; align-items:center; margin-top:10px; }
+  .icon { width:46px; height:46px; border-radius:10px; display:grid; place-items:center; background: linear-gradient(135deg,#c9a75b,#f2d38a); color:#041014; font-weight:800; text-decoration:none; }
+
+  footer { text-align:center; margin-top:36px; color: rgba(255,255,255,0.6); padding:36px 0; font-size:14px; }
+
+  /* Responsive tweaks */
+  @media (max-width:1080px){
+    .hero{ grid-template-columns: 1fr; gap:24px; padding-top:64px; }
+    .main-grid{ grid-template-columns: 1fr; }
+    .photo-card { width: 320px; }
+    .profile-img { width: 260px; height: 260px; }
+  }
+  @media (max-width:640px){
+    .name{ font-size:36px; }
+    .logo{ width:44px; height:44px; font-size:15px; }
+    nav{ width: calc(100% - 24px); left: 12px; transform: none; }
+    .profile-img{ width: 220px; height: 220px; }
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <nav>
+      <div class="brand">
+        <div class="logo" aria-hidden>MA</div>
+        <div class="meta">
+          <h4>Mohammed Aliyan</h4>
+          <p>Data Analytics · Power BI · Prompt Engineering</p>
+        </div>
+      </div>
+
+      <div class="nav-links" aria-hidden>
+        <a href="#about">About</a>
+        <a href="#projects">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#certs">Certs</a>
+        <a href="#contact" class="btn-ghost">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="home" role="banner">
+      <div class="hero-left">
+        <div class="eyebrow">Data Futurist • Aspiring Top 1%</div>
+        <div class="name">Mohammed Aliyan</div>
+        <div class="tag">Engineering premium analytics products, high-performance dashboards, and prompt systems that convert noise into decisions. Focused on Power BI, Python analytics, and AI-optimized workflows.</div>
+
+        <div class="meta-row">
+          <a class="btn-primary" href="#projects">See Projects</a>
+          <a class="btn-ghost" href="https://github.com/mohammedaliyan07" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn-ghost" href="#contact">Get in touch</a>
+        </div>
+
+        <div style="margin-top:14px; color: rgba(255,255,255,0.78);">19 • Nirmal, Telangana, India</div>
+      </div>
+
+      <div class="hero-right">
+        <div class="photo-card" id="photoCard" aria-hidden>
+          <div class="photo-inner">
+            <!-- Profile image (uses your GitHub-hosted photo) -->
+            <img class="profile-img" src="https://github.com/mohammedaliyan07/Portfolio/blob/main/Photo.jpg?raw=true" alt="Mohammed Aliyan">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-grid" role="main" aria-live="polite">
+
+      <section class="panel" id="about" aria-labelledby="about-title">
+        <h3 id="about-title">Neural Profile</h3>
+        <p><strong>Current mission:</strong> B.Com Computer Applications (Year 2 — Kakatiya University)</p>
+        <p style="margin-top:10px; color: rgba(255,255,255,0.8);">Core domains: <strong>Business Statistics</strong> · <strong>RDBMS</strong> · <strong>Financial Accounting</strong></p>
+        <p style="margin-top:14px; color: rgba(255,255,255,0.78);">Designing production-ready dashboards, data-centric systems, and repeatable prompt pipelines for decision support. Prioritize performance, automation, and actionable outcomes.</p>
+      </section>
+
+      <aside class="panel" id="sidebar">
+        <h3 style="margin-bottom:10px">Establish Link</h3>
+
+        <div class="contact">
+          <div class="row">
+            <a class="icon" href="mailto:aliyan8834@gmail.com" aria-label="Email">✉️</a>
+            <div>
+              <div style="font-weight:700">aliyan8834@gmail.com</div>
+              <div style="margin-top:6px; color: rgba(255,255,255,0.75); font-size:13px">Open to internships & entry roles</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px; color: rgba(255,255,255,0.82); font-weight:700">Links</div>
+          <div style="margin-top:10px; display:flex; gap:8px;">
+            <a class="icon" href="https://github.com/mohammedaliyan07" target="_blank" rel="noopener">GH</a>
+            <a class="icon" href="https://mohammedaliyan07.github.io/Portfolio/" target="_blank" rel="noopener">Site</a>
+            <a class="icon" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a>
+          </div>
+        </div>
+      </aside>
+
+      <section class="panel" id="skills" style="grid-column:1/-1;">
+        <h3>Tech Stack</h3>
+        <div class="skills" aria-hidden>
+          <div class="skill">Power BI</div>
+          <div class="skill">Data Visualization</div>
+          <div class="skill">DAX & Modeling</div>
+          <div class="skill">Python (pandas)</div>
+          <div class="skill">Prompt Engineering</div>
+          <div class="skill">SQL / RDBMS</div>
+          <div class="skill">Business Finance</div>
+        </div>
+      </section>
+
+      <section class="panel" id="projects" style="grid-column:1/-1;">
+        <h3>Active Projects</h3>
+        <div class="projects">
+          <article class="proj">
+            <div class="pill">⚡</div>
+            <div>
+              <h4>Power BI Intelligence Hub</h4>
+              <p>End-to-end BI dashboards with optimized DAX, automated refresh pipelines, and executive-ready insights for operational decisions.</p>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="pill">🧠</div>
+            <div>
+              <h4>Prompt Engineering Vault</h4>
+              <p>Structured prompt templates for data extraction, summarization, and automated reporting workflows — modular and reusable.</p>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="pill">📊</div>
+            <div>
+              <h4>Financial Health OS</h4>
+              <p>Python-based analytics for personal finance: CLI tools + visual trend forecasting and budgeting signals.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="certs" style="grid-column:1/-1;">
+        <h3>Certifications</h3>
+        <div class="cert-grid" aria-hidden>
+          <!-- images displayed at their original intrinsic sizes -->
+          <div class="cert-card">
+            <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert1.jpg?raw=true" alt="Prompt Engineering — Dubai Future Foundation">
+            <div class="txt">Prompt Engineering — Dubai Future Foundation</div>
+          </div>
+
+          <div class="cert-card">
+            <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert2.jpg?raw=true" alt="Digital Skills: AI — Accenture">
+            <div class="txt">Digital Skills: AI — Accenture</div>
+          </div>
+
+          <div class="cert-card">
+            <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert3.jpg?raw=true" alt="Security Analyst — Reliance Foundation">
+            <div class="txt">Security Analyst — Reliance Foundation</div>
+          </div>
+
+          <div class="cert-card">
+            <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert4.jpg?raw=true" alt="Generative AI — Infosys">
+            <div class="txt">Generative AI — Infosys</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="font-weight:700; color:#f2d38a">📍 Nirmal, Telangana, India</div>
+      <div style="margin-top:8px; color: rgba(255,255,255,0.75);">Focused on building a high-performance data future. Silent grind, loud results.</div>
+    </footer>
+  </div>
+
+  <script>
+    /* subtle tilt for photo card */
+    (function(){
+      const card = document.getElementById('photoCard');
+      if(!card) return;
+      card.addEventListener('mousemove', (e)=>{
+        const r = card.getBoundingClientRect();
+        const cx = r.left + r.width/2;
+        const cy = r.top + r.height/2;
+        const dx = e.clientX - cx;
+        const dy = e.clientY - cy;
+        const rx = (dy / r.height) * -6;
+        const ry = (dx / r.width) * 8;
+        card.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.01)`;
+      });
+      card.addEventListener('mouseleave', ()=> card.style.transform = '');
+    })();
+  </script>
+</body>
+</html>
+```0
