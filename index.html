@@ -1,400 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohammed Aliyan — Data Futurist</title>
-  <meta name="description" content="Portfolio — Mohammed Aliyan | Data Analytics, Power BI, Prompt Engineering, Generative AI." />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mohammed Aliyan</title>
 
-  <style>
-    :root{
-      --bg:#040405;
-      --panel: rgba(255,255,255,0.03);
-      --glass: rgba(255,255,255,0.04);
-      --gold-1:#c9a75b;
-      --gold-2:#f2d38a;
-      --muted:rgba(255,255,255,0.55);
-      --glass-border:rgba(255,255,255,0.06);
-      --radius:18px;
-      --maxw:1200px;
-      --accent-glow: 0 12px 40px rgba(201,167,91,0.12);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:
-        radial-gradient(800px 400px at 10% 10%, rgba(201,167,91,0.02), transparent 6%),
-        radial-gradient(600px 300px at 90% 90%, rgba(242,211,138,0.01), transparent 6%),
-        var(--bg);
-      color: #e9e7e3;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-      scroll-behavior:smooth;
-      padding-bottom:80px;
-    }
+<style>
+*{
+  margin:0; padding:0; box-sizing:border-box;
+}
+body{
+  font-family:"Inter", sans-serif;
+  background:radial-gradient(circle at top, #0a0a0a, #000000 70%);
+  color:#fff;
+  overflow-x:hidden;
+}
 
-    a{color:inherit;text-decoration:none}
+/* GLOBAL */
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+.section{
+  padding:100px 0;
+}
+h1, h2, h3{
+  font-family:"Space Grotesk", sans-serif;
+  letter-spacing:1px;
+}
 
-    /* page container */
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:36px 28px;position:relative;z-index:3}
+/* NAV */
+nav{
+  width:100%;
+  padding:20px 0;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+}
+nav .container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:600;
+  transition:0.3s;
+}
+nav a:hover{
+  opacity:0.6;
+}
 
-    /* top nav */
-    nav{
-      position:fixed;left:50%;transform:translateX(-50%);top:18px;z-index:40;
-      width:calc(100% - 64px);max-width:var(--maxw);display:flex;justify-content:space-between;align-items:center;
-      padding:10px 18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid var(--glass-border);backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,0.6)
-    }
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{
-      width:56px;height:56px;border-radius:12px;display:grid;place-items:center;
-      background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:#051018;font-family:Orbitron, sans-serif;font-weight:700;
-      box-shadow: var(--accent-glow); font-size:18px;
-    }
-    .brand .meta{display:flex;flex-direction:column}
-    .brand h4{font-family:Orbitron, sans-serif;font-size:14px;color:var(--gold-2);margin:0}
-    .brand p{font-size:12px;color:var(--muted);margin-top:4px}
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(135deg, #111, #000);
+}
+.hero h1{
+  font-size:3.5rem;
+  margin-bottom:15px;
+}
+.hero p{
+  font-size:1.1rem;
+  opacity:0.85;
+}
 
-    .nav-links{display:flex;gap:12px;align-items:center}
-    .nav-links a{padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600;font-size:13px}
-    .nav-links a:hover{color:#fff;background:linear-gradient(180deg, rgba(201,167,91,0.03), transparent);box-shadow:var(--accent-glow)}
+/* ABOUT */
+.about-box{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;
+  padding:40px;
+  backdrop-filter:blur(20px);
+}
 
-    /* hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding-top:72px}
-    .hero-left{padding:28px 8px}
-    .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:12px}
-    .name{font-family:Orbitron, sans-serif;font-size:56px;line-height:0.9;background:linear-gradient(90deg,#f7ecd0 0%,#c9a75b 50%,#fff7e0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .tag{font-size:18px;color:var(--muted);margin-top:12px;max-width:760px}
-    .meta-row{display:flex;gap:12px;align-items:center;margin-top:20px}
-    .btn-primary{
-      padding:12px 18px;border-radius:12px;background:linear-gradient(90deg,var(--gold-1),var(--gold-2));color:#051018;font-weight:700;border:1px solid rgba(255,255,255,0.04);box-shadow:var(--accent-glow)
-    }
-    .btn-ghost{padding:10px 14px;border-radius:12px;border:1px solid var(--glass-border);color:var(--muted);background:transparent}
-    .muted{color:var(--muted)}
+/* SKILLS GRID */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+  gap:20px;
+}
+.skill-item{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  font-weight:600;
+  transition:0.3s;
+}
+.skill-item:hover{
+  transform:translateY(-5px);
+  background:rgba(255,255,255,0.1);
+}
 
-    /* hero image card */
-    .hero-right{display:flex;justify-content:center;align-items:center}
-    .card-photo{width:360px;border-radius:20px;padding:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-border);box-shadow:0 20px 60px rgba(0,0,0,0.6);transform-style:preserve-3d}
-    .card-photo-inner{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(10,10,12,0.6), rgba(255,255,255,0.02));padding:10px}
-    .profile-img{width:320px;height:320px;object-fit:cover;border-radius:12px;display:block;border:1px solid rgba(255,255,255,0.03);box-shadow:0 18px 60px rgba(0,0,0,0.7)}
+/* CERTIFICATIONS */
+.cert-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+  gap:30px;
+}
+.cert-card{
+  background:rgba(255,255,255,0.05);
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.12);
+}
+.cert-card img{
+  width:100%;
+  display:block;
+}
+.cert-card .txt{
+  padding:20px;
+  font-weight:600;
+  opacity:0.9;
+}
 
-    /* two-column grid for main */
-    .main-grid{display:grid;grid-template-columns:1fr 380px;gap:28px;margin-top:36px;align-items:start}
-
-    /* glass panel */
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-border);border-radius:var(--radius);padding:22px;backdrop-filter:blur(10px);box-shadow:0 18px 50px rgba(1,1,2,0.6);opacity:0;transform:translateY(18px);transition:all .6s cubic-bezier(.2,.9,.3,1)}
-    .panel.show{opacity:1;transform:translateY(0)}
-    .panel h3{font-family:Orbitron, sans-serif;color:var(--gold-2);margin-bottom:10px;font-size:18px}
-    .panel p{color:var(--muted);line-height:1.6}
-
-    /* skills */
-    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-    .skill{padding:10px 12px;border-radius:12px;background:linear-gradient(180deg, rgba(201,167,91,0.06), rgba(201,167,91,0.02));color:var(--gold-2);font-weight:600;border:1px solid rgba(201,167,91,0.12);box-shadow:0 8px 30px rgba(201,167,91,0.06)}
-
-    /* projects */
-    .projects{display:flex;flex-direction:column;gap:12px;margin-top:12px}
-    .proj{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0));border:1px solid rgba(255,255,255,0.02);transition:all .28s}
-    .proj:hover{transform:translateY(-8px);box-shadow:0 28px 80px rgba(0,0,0,0.6), 0 8px 40px rgba(201,167,91,0.06)}
-    .proj .pill{min-width:56px;height:56px;border-radius:12px;display:grid;place-items:center;font-weight:700;color:#051018;background:linear-gradient(135deg,var(--gold-1),var(--gold-2));box-shadow:0 8px 30px rgba(201,167,91,0.12)}
-    .proj h4{margin:0 0 6px 0;font-size:16px}
-    .proj p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
-
-    /* side column certs & contact */
-    .side-stack{display:flex;flex-direction:column;gap:16px}
-    .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .cert{display:flex;gap:10px;align-items:center;padding:8px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent)}
-    .cert img{width:68px;height:68px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
-    .cert .meta{font-size:13px;color:var(--muted)}
-    .contact .row{display:flex;gap:10px;align-items:center;margin-top:8px}
-    .icon{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;font-weight:700;color:#051018;background:linear-gradient(135deg,var(--gold-1),var(--gold-2));text-decoration:none;box-shadow:0 8px 30px rgba(201,167,91,0.12)}
-
-    /* footer */
-    footer{text-align:center;margin-top:36px;color:var(--muted);padding:36px 0;font-size:14px}
-
-    /* small screens */
-    @media (max-width:1080px){
-      .hero{grid-template-columns:1fr;gap:28px;padding-top:64px}
-      .main-grid{grid-template-columns:1fr;gap:20px}
-      .card-photo{width:300px}
-    }
-    @media (max-width:640px){
-      .name{font-size:36px}
-      .logo{width:48px;height:48px;font-size:16px}
-      nav{padding:8px 16px}
-      .card-photo{width:260px}
-      .profile-img{width:240px;height:240px}
-      .cert img{width:56px;height:56px}
-    }
-  </style>
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px 0;
+  opacity:0.6;
+  font-size:0.9rem;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- subtle particles canvas -->
-  <canvas id="particle" style="position:fixed;inset:0;z-index:0;pointer-events:none;mix-blend-mode:screen;opacity:0.95"></canvas>
-
-  <div class="wrap" role="document">
-
-    <nav role="navigation" aria-label="Primary">
-      <div class="brand">
-        <div class="logo" aria-hidden>MA</div>
-        <div class="meta">
-          <h4>Mohammed Aliyan</h4>
-          <p style="margin:4px 0 0;color:var(--muted);font-size:12px">Data Analytics · Power BI · Prompt Engineering</p>
-        </div>
-      </div>
-
-      <div class="nav-links" aria-hidden>
-        <a href="#about">About</a>
-        <a href="#projects">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#certs">Certs</a>
-        <a href="#contact" class="btn-ghost">Contact</a>
-      </div>
-    </nav>
-
-    <header class="hero" id="home" role="banner">
-      <div class="hero-left">
-        <div class="eyebrow">Data Futurist • Aspiring Top 1%</div>
-        <div class="name" aria-label="Mohammed Aliyan">Mohammed Aliyan</div>
-        <div class="tag">Engineering premium analytics products, high-performance dashboards, and prompt systems that convert noise into decisions. Focused on Power BI, Python analytics, and AI-optimized workflows.</div>
-
-        <div class="meta-row">
-          <a class="btn-primary" href="#projects">See Projects</a>
-          <a class="btn-ghost" href="https://github.com/mohammedaliyan07" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn-ghost" href="#contact">Get in touch</a>
-        </div>
-
-        <div style="margin-top:14px;color:var(--muted);font-size:13px">19 • Nirmal, Telangana, India</div>
-      </div>
-
-      <div class="hero-right">
-        <div class="card-photo" id="photoCard" aria-hidden>
-          <div class="card-photo-inner">
-            <img class="profile-img" src="https://github.com/mohammedaliyan07/Portfolio/blob/main/Photo.jpg?raw=true" alt="Mohammed Aliyan">
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main class="main-grid" role="main">
-      <!-- left column -->
-      <section class="panel show" id="about" aria-labelledby="about-title">
-        <h3 id="about-title">Neural Profile</h3>
-        <p><strong>Current mission:</strong> B.Com Computer Applications (Year 2 — Kakatiya University)</p>
-        <p style="margin-top:10px" class="muted">Core domains: <strong>Business Statistics</strong> · <strong>RDBMS</strong> · <strong>Financial Accounting</strong></p>
-        <p style="margin-top:14px" class="muted">Designing production-ready dashboards, data-centric systems, and repeatable prompt pipelines for decision support. Prioritize performance, automation, and actionable outcomes.</p>
-      </section>
-
-      <!-- right column -->
-      <aside class="side-stack" aria-label="Sidebar">
-        <div class="panel" id="certs" aria-labelledby="certs-title">
-          <h3 id="certs-title">Certifications</h3>
-          <div class="cert-grid" style="margin-top:10px">
-            <div class="cert">
-              <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert1.jpg?raw=true" alt="Prompt Engineering — Dubai Future Foundation">
-              <div class="meta"><strong>Prompt Engineering</strong><div class="muted">Dubai Future Foundation</div></div>
-            </div>
-
-            <div class="cert">
-              <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert2.jpg?raw=true" alt="Digital Skills AI — Accenture">
-              <div class="meta"><strong>Digital Skills: AI</strong><div class="muted">Accenture</div></div>
-            </div>
-
-            <div class="cert">
-              <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert3.jpg?raw=true" alt="Security Analyst — Reliance Foundation">
-              <div class="meta"><strong>Security Analyst</strong><div class="muted">Reliance Foundation</div></div>
-            </div>
-
-            <div class="cert">
-              <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert4.jpg?raw=true" alt="Generative AI — Infosys">
-              <div class="meta"><strong>Generative AI</strong><div class="muted">Infosys</div></div>
-            </div>
-
-            <div class="cert" style="grid-column:span 2">
-              <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/pgdca.jpg?raw=true" alt="PGDCA">
-              <div class="meta"><strong>PGDCA</strong><div class="muted">Post Graduate Diploma in Computer Applications</div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel contact" id="contact" aria-labelledby="contact-title">
-          <h3 id="contact-title">Establish Link</h3>
-          <div class="muted" style="margin-top:8px">Available for internships, collaborations, and entry-level analytics roles.</div>
-
-          <div class="row" style="margin-top:12px">
-            <a class="icon" href="mailto:aliyan8834@gmail.com" aria-label="Email">✉️</a>
-            <div>
-              <div style="font-weight:700">aliyan8834@gmail.com</div>
-              <div class="muted" style="margin-top:6px;font-size:13px">Remote & hybrid — open to learning-focused roles</div>
-            </div>
-          </div>
-
-          <div style="margin-top:14px" class="muted">Links</div>
-          <div style="margin-top:10px;display:flex;gap:8px">
-            <a class="icon" href="https://github.com/mohammedaliyan07" target="_blank" rel="noopener">GH</a>
-            <a class="icon" href="https://mohammedaliyan07.github.io/Portfolio/" target="_blank" rel="noopener">Site</a>
-            <a class="icon" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a>
-          </div>
-        </div>
-      </aside>
-
-      <!-- full-width sections below -->
-      <section class="panel" id="skills" style="grid-column:1/-1; margin-top:18px" aria-labelledby="skills-title">
-        <h3 id="skills-title">Tech Stack</h3>
-        <div class="skills" aria-hidden>
-          <div class="skill">Power BI</div>
-          <div class="skill">Data Visualization</div>
-          <div class="skill">DAX & Modeling</div>
-          <div class="skill">Python (pandas)</div>
-          <div class="skill">Prompt Engineering</div>
-          <div class="skill">SQL / RDBMS</div>
-          <div class="skill">Business Finance</div>
-        </div>
-      </section>
-
-      <section class="panel" id="projects" style="grid-column:1/-1; margin-top:18px" aria-labelledby="work-title">
-        <h3 id="work-title">Active Projects</h3>
-        <div class="projects">
-          <article class="proj" aria-labelledby="p1">
-            <div class="pill" aria-hidden>⚡</div>
-            <div>
-              <h4 id="p1">Power BI Intelligence Hub</h4>
-              <p>End-to-end BI dashboards with optimized DAX, automated refresh pipelines, and executive-ready insights for operational decisions.</p>
-            </div>
-          </article>
-
-          <article class="proj" aria-labelledby="p2">
-            <div class="pill" aria-hidden>🧠</div>
-            <div>
-              <h4 id="p2">Prompt Engineering Vault</h4>
-              <p>Structured prompt templates for data extraction, summarization, and automated reporting workflows — modular and reusable.</p>
-            </div>
-          </article>
-
-          <article class="proj" aria-labelledby="p3">
-            <div class="pill" aria-hidden>📊</div>
-            <div>
-              <h4 id="p3">Financial Health OS</h4>
-              <p>Python-based analytics for personal finance: CLI tools + visual trend forecasting and budgeting signals.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <div style="font-weight:700;color:var(--gold-2)">📍 Nirmal, Telangana, India</div>
-      <div style="margin-top:8px" class="muted">Focused on building a high-performance data future. Silent grind, loud results.</div>
-    </footer>
+<nav>
+  <div class="container">
+    <div style="font-weight:800; font-size:1.2rem;">Aliyan</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
+</nav>
 
-  <script>
-    /* Particle background: subtle cinematic particles */
-    (function(){
-      const c = document.getElementById('particle');
-      if(!c) return;
-      const ctx = c.getContext('2d');
-      let w = c.width = innerWidth;
-      let h = c.height = innerHeight;
-      const N = Math.max(60, Math.floor((w*h)/90000));
-      const parts = [];
-      function rand(min,max){return Math.random()*(max-min)+min}
-      class P {
-        constructor(){
-          this.reset();
-        }
-        reset(){
-          this.x = rand(0,w);
-          this.y = rand(0,h);
-          this.r = rand(0.6,2.2);
-          this.vx = rand(-0.2,0.2);
-          this.vy = rand(-0.2,0.2);
-          this.a = rand(0.06,0.22);
-        }
-        step(){
-          this.x += this.vx;
-          this.y += this.vy;
-          this.a += (Math.random()-0.5)*0.01;
-          if(this.x < -50 || this.x > w+50 || this.y < -50 || this.y > h+50) this.reset();
-        }
-        draw(){
-          ctx.beginPath();
-          ctx.globalAlpha = Math.max(0.02, this.a);
-          ctx.fillStyle = '#e6d6b0';
-          ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
-          ctx.fill();
-        }
-      }
-      for(let i=0;i<N;i++) parts.push(new P());
-      function resize(){ w=c.width=innerWidth; h=c.height=innerHeight; }
-      addEventListener('resize', resize);
-      (function loop(){
-        ctx.clearRect(0,0,w,h);
-        // gentle radial shimmer
-        const g = ctx.createRadialGradient(w*0.55,h*0.2,10,w*0.5,h*0.6,Math.max(w,h));
-        g.addColorStop(0,'rgba(201,167,91,0.02)');
-        g.addColorStop(1,'rgba(5,4,6,0)');
-        ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
-        // particles
-        for(const p of parts){ p.step(); p.draw(); }
-        // sparse lines
-        ctx.beginPath();
-        for(let i=0;i<parts.length;i++){
-          for(let j=i+1;j<parts.length;j++){
-            const a = parts[i], b = parts[j];
-            const dx = a.x-b.x, dy = a.y-b.y;
-            const d = Math.sqrt(dx*dx+dy*dy);
-            if(d < 120){
-              ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-            }
-          }
-        }
-        ctx.strokeStyle = 'rgba(201,167,91,0.02)'; ctx.lineWidth = 0.4; ctx.stroke();
-        requestAnimationFrame(loop);
-      })();
-    })();
+<section class="hero">
+  <div>
+    <h1>Mohammed Aliyan</h1>
+    <p>Student | Data Analytics | AI & Tech Learner</p>
+  </div>
+</section>
 
-    /* subtle entrance animations */
-    (function(){
-      const obs = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting) e.target.classList.add('show');
-        });
-      }, {threshold:0.12});
-      document.querySelectorAll('.panel').forEach(n=>obs.observe(n));
-      document.querySelectorAll('.proj').forEach(n=>obs.observe(n));
-    })();
+<section id="about" class="section">
+  <div class="container about-box">
+    <h2>About Me</h2><br>
+    <p>
+      I'm a B.Com Computer Applications student focused on analytics, AI fundamentals, cybersecurity basics, and digital tech skills.  
+      I aim to build a high–earning and future-proof career in data and AI.
+    </p>
+  </div>
+</section>
 
-    /* photo tilt on mouse */
-    (function(){
-      const card = document.getElementById('photoCard');
-      if(!card) return;
-      card.addEventListener('mousemove', (ev)=>{
-        const r = card.getBoundingClientRect();
-        const cx = r.left + r.width/2;
-        const cy = r.top + r.height/2;
-        const dx = ev.clientX - cx;
-        const dy = ev.clientY - cy;
-        const rx = (dy / r.height) * -6;
-        const ry = (dx / r.width) * 8;
-        card.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.01)`;
-      });
-      card.addEventListener('mouseleave', ()=> card.style.transform = '');
-    })();
+<section id="skills" class="section">
+  <div class="container">
+    <h2>Skills</h2><br><br>
+    <div class="skills-grid">
+      <div class="skill-item">Data Analytics</div>
+      <div class="skill-item">Power BI</div>
+      <div class="skill-item">Business Statistics</div>
+      <div class="skill-item">RDBMS</div>
+      <div class="skill-item">AI Basics</div>
+      <div class="skill-item">Cybersecurity Fundamentals</div>
+    </div>
+  </div>
+</section>
 
-    /* small accessibility: reduce motion */
-    (function(){
-      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-      if(mq.matches){
-        document.querySelectorAll('*').forEach(el => el.style.transition = 'none');
-        const c = document.getElementById('particle'); if(c) c.style.display = 'none';
-      }
-    })();
-  </script>
+<section id="certs" class="section">
+  <div class="container">
+    <h2>Certifications</h2><br><br>
+
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <img src="YOUR_IMAGE_URL_1" alt="">
+        <div class="txt">Prompt Engineering – Dubai Future Foundation</div>
+      </div>
+
+      <div class="cert-card">
+        <img src="YOUR_IMAGE_URL_2" alt="">
+        <div class="txt">Artificial Intelligence – Accenture</div>
+      </div>
+
+      <div class="cert-card">
+        <img src="YOUR_IMAGE_URL_3" alt="">
+        <div class="txt">Security Analyst – Reliance Foundation</div>
+      </div>
+
+      <div class="cert-card">
+        <img src="YOUR_IMAGE_URL_4" alt="">
+        <div class="txt">Generative AI – Infosys</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container about-box">
+    <h2>Contact</h2><br>
+    <p>Email: your@email.com</p>
+    <p>GitHub: github.com/mohammedaliyan07</p>
+  </div>
+</section>
+
+<footer>© 2025 Mohammed Aliyan</footer>
+
 </body>
 </html>
