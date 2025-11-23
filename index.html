@@ -3,166 +3,200 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohammed Aliyan | Data Analytics</title>
-  <meta name="description" content="Aspiring Top 1% Data Analyst & Power BI Specialist | Building an AI-proof future with discipline and logic.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
+  <title>Mohammed Aliyan | Data Futurist</title>
+  <meta name="description" content="Top 1% Aspirant in Data Analytics & Power BI • Building an AI-Proof Future">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --grad-primary: linear-gradient(135deg, #4e54c8, #8f94fb);
-      --grad-accent: linear-gradient(135deg, #11998e, #38ef7d);
-      --grad-purple: linear-gradient(135deg, #667eea, #764ba2);
-      --text-light: #f8f9ff;
-      --text-dark: #11111a;
-      --bg-dark: #0f0f1b;
-      --bg-light: #ffffff;
-      --card-dark: rgba(255, 255, 255, 0.08);
-      --card-light: #ffffff;
-      --border-dark: rgba(255,255,255,0.08);
-      --border-light: #e0e0e0;
-      --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.3);
-      --shadow-light: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --space-black: #09090f;
+      --deep-navy: #0d0d1a;
+      --electric-purple: #8a2be2;
+      --cyber-blue: #00f0ff;
+      --neon-pink: #ff00c8;
+      --luminous-white: #f0f4ff;
+      --card-bg-dark: rgba(15, 15, 30, 0.65);
+      --glow-primary: 0 0 25px rgba(138, 43, 226, 0.7);
+      --glow-accent: 0 0 20px rgba(0, 240, 255, 0.5);
     }
 
     .light-theme {
-      --text-primary: var(--text-dark);
-      --bg-primary: var(--bg-light);
-      --card-bg: var(--card-light);
-      --border-color: var(--border-light);
-      --box-shadow: var(--shadow-light);
-      color-scheme: light;
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --glow-primary: 0 0 20px rgba(138, 43, 226, 0.3);
+      --glow-accent: 0 0 15px rgba(0, 200, 255, 0.3);
     }
 
     .dark-theme {
-      --text-primary: var(--text-light);
-      --bg-primary: var(--bg-dark);
-      --card-bg: var(--card-dark);
-      --border-color: var(--border-dark);
-      --box-shadow: var(--shadow-dark);
-      color-scheme: dark;
+      --bg: var(--space-black);
+      --text: var(--luminous-white);
+      --card-bg: var(--card-bg-dark);
+      --border: rgba(255, 255, 255, 0.08);
+      --glow-primary: var(--glow-primary);
+      --glow-accent: var(--glow-accent);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', system-ui, sans-serif;
       min-height: 100vh;
-      transition: background 0.4s ease, color 0.4s ease;
+      overflow-x: hidden;
+      transition: background 0.5s ease, color 0.5s ease;
     }
 
     .container {
-      max-width: 960px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2.5rem 2rem;
     }
 
     /* Theme Toggle */
     .theme-toggle {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 44px;
-      height: 44px;
+      top: 25px;
+      right: 25px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--card-bg);
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 1.4rem;
       cursor: pointer;
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s ease;
-      z-index: 10;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .theme-toggle:hover {
-      transform: rotate(20deg);
-    }
-
-    .theme-toggle svg {
-      width: 20px;
-      height: 20px;
-      fill: var(--text-primary);
-      transition: opacity 0.3s ease;
+      transform: rotate(30deg) scale(1.1);
     }
 
     /* Header */
     header {
       text-align: center;
-      padding: 3rem 0 2rem;
+      padding: 3.5rem 0 2.5rem;
       position: relative;
     }
 
-    .profile-img {
-      width: 180px;
-      height: 180px;
+    .profile-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+
+    .profile-glow {
+      position: absolute;
+      inset: -12px;
       border-radius: 50%;
-      margin: 0 auto 1.8rem;
-      position: relative;
-      overflow: hidden;
-      border: 3px solid var(--bg-primary);
+      background: var(--glow-primary);
+      z-index: -1;
+      filter: blur(20px);
+      opacity: 0.7;
     }
 
-    .profile-img::before {
-      content: '';
+    .profile-border {
       position: absolute;
       inset: -6px;
       border-radius: 50%;
-      background: var(--grad-primary);
+      background: linear-gradient(135deg, var(--electric-purple), var(--cyber-blue));
       z-index: -1;
+      padding: 4px;
+      animation: rotateGlow 8s linear infinite;
     }
 
-    .profile-img img {
-      width: 100%;
-      height: 100%;
+    .profile-border::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      background: var(--bg);
+    }
+
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
       object-fit: cover;
+      position: relative;
+      z-index: 2;
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes rotateGlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 3.2rem;
       font-weight: 700;
-      background: var(--grad-accent);
+      margin: 1rem 0 0.6rem;
+      background: linear-gradient(90deg, var(--electric-purple), var(--cyber-blue));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
     }
 
-    .subtitle { font-size: 1.1rem; opacity: 0.85; margin-bottom: 1.2rem; }
-    .tagline { font-size: 1.3rem; line-height: 1.6; max-width: 600px; margin: 0 auto 1.5rem; }
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      max-width: 650px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+      font-weight: 500;
+    }
 
     .quote {
+      font-size: 1.4rem;
       font-style: italic;
-      color: #a0a0ff;
-      font-size: 1.25rem;
+      background: linear-gradient(90deg, var(--cyber-blue), #ff00ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       margin-top: 1.5rem;
       position: relative;
-    }
-
-    .quote::before, .quote::after {
-      content: '"';
-      font-size: 1.8rem;
-      opacity: 0.6;
     }
 
     /* Sections */
     section {
       margin-bottom: 2.8rem;
-      padding: 1.8rem;
-      border-radius: 20px;
+      padding: 2rem;
+      border-radius: 24px;
       background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--box-shadow);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(25px);
+      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      box-shadow: var(--glow-primary);
     }
 
     section.visible {
@@ -171,84 +205,90 @@
     }
 
     h2 {
-      font-size: 1.7rem;
-      margin-bottom: 1.3rem;
-      background: var(--grad-primary);
+      font-size: 1.9rem;
+      margin-bottom: 1.4rem;
+      background: linear-gradient(90deg, var(--electric-purple), var(--cyber-blue));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    p, ul { line-height: 1.7; margin-bottom: 0.9rem; }
-    ul { padding-left: 1.4rem; }
+    p, ul {
+      line-height: 1.75;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    ul { padding-left: 1.5rem; }
 
     /* Skills */
     .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-top: 0.5rem;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
     }
 
     .skill-tag {
-      background: rgba(78, 84, 200, 0.15);
-      padding: 0.45rem 1.1rem;
-      border-radius: 30px;
+      background: rgba(138, 43, 226, 0.15);
+      color: var(--cyber-blue);
+      padding: 0.5rem 1.3rem;
+      border-radius: 50px;
       font-size: 0.95rem;
-      font-weight: 500;
-      border: 1px solid rgba(78, 84, 200, 0.3);
+      font-weight: 600;
+      border: 1px solid rgba(138, 43, 226, 0.3);
+      backdrop-filter: blur(5px);
     }
 
-    .light-theme .skill-tag {
-      background: rgba(78, 84, 200, 0.1);
-      border-color: rgba(78, 84, 200, 0.4);
-    }
-
-    /* Certifications — FIXED: Original aspect ratio */
+    /* Certifications */
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.2rem;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.4rem;
     }
 
     .cert-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .cert-item:hover {
+      transform: scale(1.03);
     }
 
     .cert-img {
       width: 100%;
-      height: auto; /* Preserve original aspect ratio */
-      max-height: 220px;
+      height: auto;
+      max-height: 240px;
       object-fit: contain;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      background: var(--bg-primary);
-      padding: 8px;
-      box-sizing: border-box;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 10px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      transition: box-shadow 0.4s ease, transform 0.3s ease;
     }
 
-    .cert-img:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    .cert-item:hover .cert-img {
+      box-shadow: var(--glow-accent);
+      transform: translateY(-6px);
     }
 
     .cert-label {
-      font-size: 0.85rem;
-      margin-top: 0.6rem;
-      text-align: center;
-      color: var(--text-primary);
+      display: block;
+      margin-top: 0.8rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
     }
 
     /* Projects */
     .project {
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 1.6rem;
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .project:last-child {
@@ -258,139 +298,125 @@
     }
 
     .project h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .project p {
-      font-size: 0.95rem;
-      opacity: 0.9;
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+      color: var(--cyber-blue);
     }
 
     /* Social */
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 1.4rem;
-      margin-top: 1rem;
+      gap: 1.6rem;
+      margin-top: 1.2rem;
     }
 
     .social-icon {
-      width: 42px;
-      height: 42px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 50%;
       background: var(--card-bg);
-      color: var(--text-primary);
+      border: 1px solid var(--border);
+      color: var(--text);
       text-decoration: none;
-      transition: transform 0.3s ease, background 0.3s ease;
-      border: 1px solid var(--border-color);
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
     }
 
     .social-icon:hover {
-      transform: translateY(-4px);
-      background: var(--grad-primary);
-    }
-
-    .social-icon svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
+      transform: translateY(-5px);
+      box-shadow: var(--glow-primary);
+      background: linear-gradient(135deg, rgba(138,43,226,0.2), rgba(0,240,255,0.2));
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 2rem 0 1.5rem;
+      padding: 2.5rem 0 1.5rem;
       opacity: 0.8;
-      font-size: 0.95rem;
+      font-size: 1.05rem;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .container { padding: 1.5rem; }
-      h1 { font-size: 2.2rem; }
-      .tagline { font-size: 1.15rem; }
+      h1 { font-size: 2.5rem; }
+      .tagline { font-size: 1.2rem; }
       .cert-grid { grid-template-columns: repeat(2, 1fr); }
+      .container { padding: 1.8rem 1.2rem; }
     }
 
     @media (max-width: 480px) {
       .cert-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 2rem; }
-      .theme-toggle { top: 15px; right: 15px; }
+      h1 { font-size: 2.2rem; }
+      .profile-img { width: 170px; height: 170px; }
     }
   </style>
 </head>
 <body class="dark-theme">
   <div class="container">
     <header>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
-        <!-- Sun Icon (visible in dark mode) -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="theme-icon sun-icon">
-          <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/>
-        </svg>
-        <!-- Moon Icon (visible in light mode) -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="theme-icon moon-icon" style="display: none;">
-          <path d="M12 12.5c-3.04 0-5.5 2.46-5.5 5.5s2.46 5.5 5.5 5.5c3.04 0 5.5-2.46 5.5-5.5s-2.46-5.5-5.5-5.5zm0-10c-4.19 0-7.61 3.42-7.61 7.61 0 1.26.31 2.47.88 3.54l-4.23 4.23 1.41 1.41 4.23-4.23c1.07.57 2.28.88 3.54.88 4.19 0 7.61-3.42 7.61-7.61S16.19 1.5 12 1.5z"/>
-        </svg>
-      </button>
+      <div class="theme-toggle" id="themeToggle">☀️</div>
 
-      <div class="profile-img">
-        <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/Photo.jpg?raw=true" alt="Mohammed Aliyan">
+      <div class="profile-container">
+        <div class="profile-glow"></div>
+        <div class="profile-border"></div>
+        <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/Photo.jpg?raw=true" alt="Mohammed Aliyan" class="profile-img">
       </div>
+
       <h1>Mohammed Aliyan</h1>
       <p class="subtitle">19 • Nirmal, Telangana, India</p>
       <p class="tagline">
-        Building toward <strong>Top 1% in Data Analytics & Power BI</strong><br>
-        B.Com Computer Applications • AI-Proof Career • Disciplined Lifestyle
+        Engineering a <strong>Top 1%</strong> career in <strong>Data Analytics & Power BI</strong><br>
+        Building an <em>AI-proof, globally relevant future</em> with logic and discipline.
       </p>
       <p class="quote">Silent grind, loud results.</p>
     </header>
 
     <section id="about">
-      <h2>🔍 What I Do</h2>
-      <p><strong>Academics</strong>: Business Statistics • RDBMS • Financial Accounting</p>
-      <p><strong>Focus</strong>: Data Analytics, Power BI, Prompt Engineering</p>
-      <p>Goal: High-paying, globally relevant, <strong>AI-proof career</strong> in technology.</p>
+      <h2>NEURAL PROFILE</h2>
+      <p><strong>Current Mission</strong>: B.Com Computer Applications (Year 2)<br>
+      Core Domains: <em>Business Statistics</em> • <em>RDBMS</em> • <em>Financial Accounting</em></p>
+      <p>Architecting data-driven systems for high-impact, future-proof outcomes.</p>
     </section>
 
     <section id="skills">
-      <h2>🛠️ Skills</h2>
+      <h2>TECH STACK</h2>
       <div class="skills">
         <span class="skill-tag">Power BI</span>
-        <span class="skill-tag">Data Visualization</span>
-        <span class="skill-tag">Basic Python</span>
-        <span class="skill-tag">Prompt Engineering</span>
-        <span class="skill-tag">Financial & Business Fundamentals</span>
+        <span class="skill-tag">Data Viz</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Prompt Eng.</span>
+        <span class="skill-tag">Fin & Biz Fund.</span>
       </div>
     </section>
 
     <section id="story">
-      <h2>🧭 My Story</h2>
-      <p>Student from a middle-class family, driven by discipline and logic.</p>
-      <p>Actively mastering data analytics to build a stable, high-impact future—while staying grounded in growth and simplicity.</p>
+      <h2>ORIGIN STORY</h2>
+      <p>From a middle-class home in Nirmal—driven by <strong>discipline</strong>, <strong>logic</strong>, and relentless <strong>growth</strong>.</p>
+      <p>Every line of code, every dashboard, every rep in the gym—fueling a future where skill > noise.</p>
     </section>
 
     <section id="projects">
-      <h2>🚀 Projects & Focus Areas</h2>
+      <h2>ACTIVE PROJECTS</h2>
       <div class="project">
-        <h3>Power BI Sales Dashboard</h3>
-        <p>Interactive dashboard analyzing regional sales performance with DAX measures and dynamic filters.</p>
+        <h3>⚡ Power BI Intelligence Hub</h3>
+        <p>Dynamic sales & ops dashboards with DAX, AI insights, and real-time data pipelines.</p>
       </div>
       <div class="project">
-        <h3>Prompt Engineering Experiments</h3>
-        <p>Building reusable prompt templates for data summarization, insight extraction, and report generation.</p>
+        <h3>🧠 Prompt Engineering Vault</h3>
+        <p>Reusable, structured prompts for data extraction, summarization, and executive reporting.</p>
       </div>
       <div class="project">
-        <h3>Financial Health Tracker (Python)</h3>
-        <p>Basic CLI tool to log income/expenses and visualize monthly trends using matplotlib.</p>
+        <h3>📊 Financial Health OS (Python)</h3>
+        <p>CLI + visualization tool for personal finance tracking and trend forecasting.</p>
       </div>
     </section>
 
     <section id="certifications">
-      <h2>🏆 Certifications</h2>
+      <h2>ACHIEVEMENTS</h2>
       <div class="cert-grid">
         <div class="cert-item">
           <img src="https://github.com/mohammedaliyan07/Portfolio/blob/main/cert1.jpg?raw=true" class="cert-img" alt="Prompt Engineering">
@@ -415,67 +441,36 @@
       </div>
     </section>
 
-    <section id="interests">
-      <h2>💡 Values & Interests</h2>
-      <p><strong>Values</strong>: Logic • Discipline • Growth • Loyalty • Simplicity</p>
-      <p><strong>Interests</strong>: Tech • Minimal Travel • Biryani/Mandi • Fitness • Self-Improvement • Formal Shirts & Smart Casual Style • Music (English/Urdu/Hindi)</p>
-    </section>
-
     <section id="contact">
-      <h2>📬 Let’s Connect</h2>
+      <h2>ESTABLISH LINK</h2>
       <div class="social-links">
-        <a href="mailto:aliyan8834@gmail.com" class="social-icon" aria-label="Email">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
-        </a>
-        <a href="https://github.com/mohammedaliyan07" class="social-icon" aria-label="GitHub">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-          </svg>
-        </a>
+        <a href="mailto:aliyan8834@gmail.com" class="social-icon" aria-label="Email">📧</a>
+        <a href="https://github.com/mohammedaliyan07" class="social-icon" aria-label="GitHub">💻</a>
       </div>
     </section>
 
     <footer>
-      <p>📍 Nirmal, Telangana, India</p>
-      <p><em>Building in silence. Shipping with impact.</em></p>
+      <p>📍 Nirmal, Telangana • Building the future, one silent grind at a time.</p>
     </footer>
   </div>
 
   <script>
-    const themeToggle = document.getElementById('themeToggle');
+    const toggle = document.getElementById('themeToggle');
     const body = document.body;
-    const sunIcon = document.querySelector('.sun-icon');
-    const moonIcon = document.querySelector('.moon-icon');
 
-    // Load saved theme or respect system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Load theme
+    const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    body.className = saved + '-theme';
+    toggle.textContent = saved === 'dark' ? '☀️' : '🌙';
 
-    if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) {
-      body.classList.replace('dark-theme', 'light-theme');
-      sunIcon.style.display = 'none';
-      moonIcon.style.display = 'block';
-    } else {
-      body.classList.replace('light-theme', 'dark-theme');
-      sunIcon.style.display = 'block';
-      moonIcon.style.display = 'none';
-    }
-
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('light-theme');
-      body.classList.toggle('dark-theme');
-
-      if (body.classList.contains('light-theme')) {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-        localStorage.setItem('theme', 'light');
-      } else {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-        localStorage.setItem('theme', 'dark');
-      }
+    toggle.addEventListener('click', () => {
+      const isDark = body.classList.contains('dark-theme');
+      const newMode = isDark ? 'light' : 'dark';
+      
+      body.className = newMode + '-theme';
+      toggle.textContent = isDark ? '🌙' : '☀️';
+      
+      localStorage.setItem('theme', newMode);
     });
 
     // Scroll animation
@@ -483,9 +478,9 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15 });
 
-    document.querySelectorAll('section').forEach(section => observer.observe(section));
+    document.querySelectorAll('section').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
