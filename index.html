@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="nebula">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Mohammed Aliyan — Portfolio | AI · Business · Data</title>
+  <meta name="description" content="Mohammed Aliyan — Final-year B.Com (Computer Applications) student certified by Google, AWS, NASA, Tata, Walmart, Siemens & more. 28 credentials across AI, Cybersecurity, Project Management, Data & Finance." />
+  <meta name="keywords" content="Mohammed Aliyan, Portfolio, Certifications, AI, Prompt Engineering, Cybersecurity, Project Management, B.Com Computer Applications" />
+  <meta name="author" content="Mohammed Aliyan" />
+  <meta name="theme-color" content="#0b0f1e" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mohammed Aliyan — Portfolio" />
+  <meta property="og:description" content="28 certifications from Google, AWS, NASA, Tata, Walmart & more. AI · Cybersecurity · Project Management · Data · Finance." />
+  <meta property="og:image" content="https://mohammedaliyan07.github.io/portfolio/assets/img/profile-square.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mohammed Aliyan — Portfolio" />
+  <meta name="twitter:description" content="28 certifications from Google, AWS, NASA, Tata, Walmart & more." />
+  <meta name="twitter:image" content="https://mohammedaliyan07.github.io/portfolio/assets/img/profile-square.jpg" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Arial, sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3EMA%3C/text%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/lightbox.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohammed Aliyan",
+    "email": "mailto:aliyan8834@gmail.com",
+    "birthDate": "2005-11-28",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Kakatiya University" },
+    "knowsAbout": ["Artificial Intelligence", "Prompt Engineering", "Cybersecurity", "Project Management", "Data Analysis", "Finance"],
+    "sameAs": ["https://github.com/mohammedaliyan07"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════════ PRELOADER ═══════════════ -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <div class="preloader-logo">MA</div>
+      <div class="preloader-bar"><span></span></div>
+      <div class="preloader-count">0%</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ CUSTOM CURSOR ═══════════════ -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ═══════════════ SCROLL PROGRESS ═══════════════ -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ═══════════════ NAVBAR ═══════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="Home">
+        <span class="logo-mark">MA</span><span class="logo-dot">.</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#certifications" class="nav-link">Certifications</a></li>
+        <li><a href="#journey" class="nav-link">Journey</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-fab" id="themeFab" aria-label="Change theme" title="Change theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ THEME PANEL ═══════════════ -->
+  <div class="theme-panel" id="themePanel" aria-hidden="true">
+    <div class="theme-panel-header">
+      <span>Choose a theme</span>
+      <button class="theme-close" id="themeClose" aria-label="Close">×</button>
+    </div>
+    <div class="theme-options">
+      <button class="theme-option" data-theme-value="nebula">
+        <span class="theme-swatch nebula-swatch"></span>
+        <span class="theme-name">Nebula</span>
+        <span class="theme-desc">Dark · Purple</span>
+      </button>
+      <button class="theme-option" data-theme-value="ocean">
+        <span class="theme-swatch ocean-swatch"></span>
+        <span class="theme-name">Ocean</span>
+        <span class="theme-desc">Dark · Cyan</span>
+      </button>
+      <button class="theme-option" data-theme-value="aurora">
+        <span class="theme-swatch aurora-swatch"></span>
+        <span class="theme-name">Aurora</span>
+        <span class="theme-desc">Dark · Emerald</span>
+      </button>
+      <button class="theme-option" data-theme-value="light">
+        <span class="theme-swatch light-swatch"></span>
+        <span class="theme-name">Daylight</span>
+        <span class="theme-desc">Light · Indigo</span>
+      </button>
+      <button class="theme-option" data-theme-value="brutal">
+        <span class="theme-swatch brutal-swatch"></span>
+        <span class="theme-name">Brutalist</span>
+        <span class="theme-desc">Bold · Retro</span>
+      </button>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <header class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="orb orb-1" data-parallax="0.25"></div>
+        <div class="orb orb-2" data-parallax="0.4"></div>
+        <div class="orb orb-3" data-parallax="0.15"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-noise"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-left">
+          <div class="hero-badge reveal" data-reveal="fade-up">
+            <span class="pulse-dot"></span>
+            Open to internships &amp; opportunities
+          </div>
+
+          <h1 class="hero-title">
+            <span class="hero-greeting reveal" data-reveal="fade-up" data-delay="100">Hi, I'm</span>
+            <span class="hero-name reveal" data-reveal="fade-up" data-delay="200">Mohammed<span class="accent-text"> Aliyan</span></span>
+          </h1>
+
+          <div class="hero-typed reveal" data-reveal="fade-up" data-delay="350">
+            <span id="typedText" class="typed-text"></span><span class="typed-cursor">|</span>
+          </div>
+
+          <p class="hero-sub reveal" data-reveal="fade-up" data-delay="450">
+            Final-year <strong>B.Com (Computer Applications)</strong> student who bridges
+            <strong>business and technology</strong> — certified across AI, Cybersecurity,
+            Project Management, Data &amp; Finance by the world's leading organizations.
+          </p>
+
+          <div class="hero-cta reveal" data-reveal="fade-up" data-delay="550">
+            <a href="#certifications" class="btn btn-primary magnetic" data-magnetic>
+              <span>View Certifications</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-ghost magnetic" data-magnetic>
+              <span>Contact Me</span>
+            </a>
+            <a href="https://github.com/mohammedaliyan07" target="_blank" rel="noopener" class="btn btn-icon magnetic" data-magnetic aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+
+          <div class="hero-socials reveal" data-reveal="fade-up" data-delay="650">
+            <a href="mailto:aliyan8834@gmail.com" class="social-link" aria-label="Email" data-tip="aliyan8834@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+            </a>
+            <a href="https://github.com/mohammedaliyan07" target="_blank" rel="noopener" class="social-link" aria-label="GitHub" data-tip="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-right reveal" data-reveal="zoom-in" data-delay="300">
+          <div class="avatar-wrap tilt-card">
+            <div class="avatar-ring"></div>
+            <div class="avatar-ring-2"></div>
+            <img src="assets/img/profile-square.jpg" alt="Mohammed Aliyan" class="avatar" id="heroAvatar" />
+            <div class="float-chip chip-1">
+              <span class="chip-icon">🎓</span> 28 Certifications
+            </div>
+            <div class="float-chip chip-2">
+              <span class="chip-icon">🚀</span> Class of 2027
+            </div>
+            <div class="float-chip chip-3">
+              <span class="chip-icon">🤖</span> AI Certified
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="mouse"><div class="wheel"></div></div>
+        <span>Scroll to explore</span>
+      </div>
+    </header>
+
+    <!-- ═══════════════ ISSUER MARQUEE ═══════════════ -->
+    <section class="marquee-section" aria-label="Certification issuers">
+      <div class="marquee">
+        <div class="marquee-track" id="marqueeTrack"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ STATS ═══════════════ -->
+    <section class="stats-section" id="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card reveal" data-reveal="fade-up">
+            <span class="stat-number" data-count="28">0</span>
+            <span class="stat-label">Certifications</span>
+          </div>
+          <div class="stat-card reveal" data-reveal="fade-up" data-delay="100">
+            <span class="stat-number" data-count="20">0</span>
+            <span class="stat-label">Global Issuers</span>
+          </div>
+          <div class="stat-card reveal" data-reveal="fade-up" data-delay="200">
+            <span class="stat-number" data-count="7">0</span>
+            <span class="stat-label">Skill Domains</span>
+          </div>
+          <div class="stat-card reveal" data-reveal="fade-up" data-delay="300">
+            <span class="stat-number" data-count="4">0</span>
+            <span class="stat-plus">+</span>
+            <span class="stat-label">Job Simulations</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <section class="about-section section" id="about">
+      <div class="container">
+        <div class="section-header reveal" data-reveal="fade-up">
+          <span class="section-tag">01 — About</span>
+          <h2 class="section-title">The Person Behind<br><span class="accent-text">The Credentials</span></h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal" data-reveal="fade-right">
+            <p>
+              I'm <strong>Mohammed Aliyan</strong>, a final-year <strong>B.Com (Computer Applications)</strong>
+              student at Kakatiya University, graduating in <strong>2027</strong>. My journey sits at the
+              intersection of commerce and computing — where financial thinking meets technological execution.
+            </p>
+            <p>
+              Over the past two years I've earned <strong>28 certifications</strong> from some of the world's
+              most respected organizations — <strong>Google, AWS, NASA, Accenture, Tata, Walmart, Siemens,
+              Electronic Arts, UNICEF and Infosys</strong> — spanning Artificial Intelligence, Prompt Engineering,
+              Cybersecurity, Project Management, Data Analytics, Finance and Design.
+            </p>
+            <p>
+              I learn by doing: virtual job simulations at <strong>Walmart, Siemens, EA and Tata</strong> let me
+              apply operations, project and security concepts to real business scenarios. My goal is to grow into
+              a professional who can speak both languages — <em>business strategy and technology</em> — fluently.
+            </p>
+            <div class="about-sign">— Mohammed Aliyan</div>
+          </div>
+
+          <div class="about-bento">
+            <div class="bento-card bento-edu reveal" data-reveal="zoom-in">
+              <span class="bento-icon">🎓</span>
+              <h3>Education</h3>
+              <p class="bento-main">B.Com — Computer Applications</p>
+              <p class="bento-sub">Kakatiya University · Final Year · Class of 2027</p>
+            </div>
+            <div class="bento-card bento-dob reveal" data-reveal="zoom-in" data-delay="80">
+              <span class="bento-icon">🎂</span>
+              <h3>Born</h3>
+              <p class="bento-main">28 Nov 2005</p>
+              <p class="bento-sub">Generation Z · Digital Native</p>
+            </div>
+            <div class="bento-card bento-mail reveal" data-reveal="zoom-in" data-delay="160">
+              <span class="bento-icon">✉️</span>
+              <h3>Email</h3>
+              <p class="bento-main bento-email">aliyan8834@gmail.com</p>
+              <button class="copy-btn" id="copyEmailBtn" data-copy="aliyan8834@gmail.com">Copy</button>
+            </div>
+            <div class="bento-card bento-loc reveal" data-reveal="zoom-in" data-delay="240">
+              <span class="bento-icon">📍</span>
+              <h3>Based In</h3>
+              <p class="bento-main">India</p>
+              <p class="bento-sub">Open to remote &amp; global opportunities</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SKILLS ═══════════════ -->
+    <section class="skills-section section" id="skills">
+      <div class="container">
+        <div class="section-header reveal" data-reveal="fade-up">
+          <span class="section-tag">02 — Skills</span>
+          <h2 class="section-title">What I Bring<br><span class="accent-text">To The Table</span></h2>
+        </div>
+
+        <div class="skills-grid" id="skillsGrid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ CERTIFICATIONS ═══════════════ -->
+    <section class="certs-section section" id="certifications">
+      <div class="container">
+        <div class="section-header reveal" data-reveal="fade-up">
+          <span class="section-tag">03 — Credentials</span>
+          <h2 class="section-title">Certification<br><span class="accent-text">Gallery</span></h2>
+          <p class="section-desc">
+            28 verified credentials. Click any card to open the certificate viewer —
+            pinch to zoom, drag to pan, swipe to browse.
+          </p>
+        </div>
+
+        <div class="certs-toolbar reveal" data-reveal="fade-up">
+          <div class="certs-filters" id="certFilters" role="tablist" aria-label="Filter certifications">
+            <!-- Rendered by JS -->
+          </div>
+          <div class="certs-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="search" id="certSearch" placeholder="Search title, issuer or skill…" aria-label="Search certifications" />
+          </div>
+        </div>
+
+        <div class="certs-grid" id="certsGrid">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div class="certs-empty" id="certsEmpty" hidden>
+          <span class="empty-icon">🔍</span>
+          <p>No certifications match your search.</p>
+          <button class="btn btn-ghost" id="clearSearch">Clear search</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ TIMELINE / JOURNEY ═══════════════ -->
+    <section class="journey-section section" id="journey">
+      <div class="container">
+        <div class="section-header reveal" data-reveal="fade-up">
+          <span class="section-tag">04 — Journey</span>
+          <h2 class="section-title">Learning<br><span class="accent-text">Timeline</span></h2>
+          <p class="section-desc">From the first certificate in Dec 2024 to NASA in Aug 2026 — a continuous streak of learning.</p>
+        </div>
+
+        <div class="timeline" id="timeline">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <section class="contact-section section" id="contact">
+      <div class="container">
+        <div class="section-header reveal" data-reveal="fade-up">
+          <span class="section-tag">05 — Contact</span>
+          <h2 class="section-title">Let's Build<br><span class="accent-text">Something Together</span></h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal" data-reveal="fade-right">
+            <span class="contact-icon">✉️</span>
+            <h3>Email Me</h3>
+            <p class="contact-value">aliyan8834@gmail.com</p>
+            <a href="mailto:aliyan8834@gmail.com?subject=Hello%20Aliyan%20—%20from%20your%20portfolio" class="btn btn-primary">
+              Send an Email <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <button class="copy-btn copy-btn-inline" data-copy="aliyan8834@gmail.com">📋 Copy address</button>
+          </div>
+
+          <div class="contact-card reveal" data-reveal="fade-left">
+            <span class="contact-icon">💻</span>
+            <h3>Find Me On</h3>
+            <p class="contact-value">GitHub</p>
+            <a href="https://github.com/mohammedaliyan07" target="_blank" rel="noopener" class="btn btn-ghost">
+              @mohammedaliyan07 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+            <p class="contact-note">This portfolio lives on GitHub Pages — source code included.</p>
+          </div>
+
+          <div class="contact-card contact-card-wide reveal" data-reveal="fade-up">
+            <div class="contact-quote">
+              <span class="quote-mark">"</span>
+              <p>Learning never exhausts the mind — it compounds like interest. 28 certificates in 20 months is just the beginning.</p>
+            </div>
+            <div class="contact-cta-row">
+              <a href="#certifications" class="btn btn-primary">Explore My Credentials</a>
+              <a href="assets/img/profile.jpg" class="btn btn-ghost" download="Mohammed-Aliyan.jpg">⬇ Download Photo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-mark">MA</span><span class="logo-dot">.</span>
+          <p>Certified learner. Business-minded. Tech-driven.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Mohammed Aliyan. All rights reserved.</p>
+        <p class="footer-made">Crafted with <span class="heart">♥</span> · Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════ BACK TO TOP ═══════════════ -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- ═══════════════ CERTIFICATE LIGHTBOX ═══════════════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Certificate viewer" hidden>
+    <div class="lightbox-backdrop"></div>
+
+    <div class="lightbox-header">
+      <div class="lightbox-title-group">
+        <h3 class="lightbox-title" id="lbTitle">Certificate</h3>
+        <p class="lightbox-meta" id="lbMeta">Issuer · Date</p>
+      </div>
+      <div class="lightbox-actions">
+        <button class="lb-btn" id="lbDownload" aria-label="Download" title="Download certificate">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </button>
+        <button class="lb-btn" id="lbFullscreen" aria-label="Fullscreen" title="Fullscreen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3M21 8V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3M16 21h3a2 2 0 002-2v-3"/></svg>
+        </button>
+        <button class="lb-btn lb-close" id="lbClose" aria-label="Close" title="Close (Esc)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="lightbox-stage" id="lbStage">
+      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous certificate">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 19l-7-7 7-7"/></svg>
+      </button>
+
+      <div class="lightbox-canvas" id="lbCanvas">
+        <img id="lbImage" src="" alt="Certificate" draggable="false" />
+      </div>
+
+      <button class="lb-nav lb-next" id="lbNext" aria-label="Next certificate">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+
+      <div class="lightbox-hint" id="lbHint">
+        <span>🖱️ Scroll to zoom · Drag to pan · Double-click to toggle</span>
+        <span>📱 Pinch to zoom · Swipe to browse</span>
+      </div>
+    </div>
+
+    <div class="lightbox-footer">
+      <div class="lightbox-controls">
+        <button class="lb-btn" id="lbZoomOut" aria-label="Zoom out" title="Zoom out">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M21 21l-4.35-4.35"/></svg>
+        </button>
+        <span class="lb-zoom-level" id="lbZoomLevel">100%</span>
+        <button class="lb-btn" id="lbZoomIn" aria-label="Zoom in" title="Zoom in">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M11 8v6M8 11h6M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="lb-btn" id="lbReset" aria-label="Reset zoom" title="Reset zoom (0)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 109-9 9.75 9.75 0 00-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+      </div>
+      <div class="lightbox-skills" id="lbSkills"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TOAST ═══════════════ -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
