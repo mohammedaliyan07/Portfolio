@@ -5,3 +5,4 @@ Minimal 3D portfolio (single `index.html`) with my photo and certifications.
 - Status: No real projects yet — building a small demo (expense tracker) next.
 - How to run: open `index.html` via a static server (e.g. `npx http-server .`) or view the GitHub Pages link.
 - Contact: https://github.com/mohammedaliyan07
+- https://mohammedaliyan07.github.io/Portfolio/
